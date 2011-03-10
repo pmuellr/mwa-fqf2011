@@ -1,28 +1,40 @@
+
 /*
  * Copyright (c) 2011 Patrick Mueller
  * Licensed under the MIT license: 
  * http://www.opensource.org/licenses/mit-license.php
  */
 
+requireClass ./DB
+requireClass ./SampleData
+
+//-----------------------------------------------------------------------------
 class Main
 
+//-----------------------------------------------------------------------------
 static method main
-
-    jo.load();
     
-    // setup a stack and screen
-    var stack = new joStackScroller();
-    var scn = new joScreen(stack);
+    data = SampleData.getData()
+    // console.log(JSON.stringify(data,null,4))
     
-    // create our view card
-    var card = new joCard([
-        new joTitle("Hello"),
-        new joCaption("Hello World!"),
-        new joDivider(),
-        new joButton("OK").selectEvent.subscribe(function() {
-            stack.hide();
-        })
-    ]);
+    db = new DB()
+    db.load(data)
+    db.dump()
     
-    // put the card on our view stack
-    stack.push(card);
+    var events = db.getEvents()
+    
+    var html = ""
+    _.each(events, function(event) {
+        var artist = db.getArtist(event.artist)
+        var venue  = db.getVenue(event.venue)
+        
+        html += "<p>"
+        html += event.stime
+        html += " - "
+        html += event.etime
+        html += " - "
+        html += artist.name
+        html += "\n"
+    })
+    
+    $("#document-body").html(html)

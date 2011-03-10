@@ -1,0 +1,66 @@
+
+/*
+ * Copyright (c) 2011 Patrick Mueller
+ * Licensed under the MIT license: 
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+//-----------------------------------------------------------------------------
+class SampleData
+
+//-----------------------------------------------------------------------------
+static method getData
+
+    var result = {}
+    
+    result.artists = []
+    result.venues  = []
+    result.events  = []
+    
+    var count = 12
+    for (var i=0; i<count; i++) {
+        var suffix = String.fromCharCode(80 - i)
+        
+        result.artists.push({
+            name: "Artist-" + suffix,
+            desc: "<p>description of Artist-" + suffix,
+            link: "http://example.com/Artist-" + suffix
+        })
+    }
+    
+    for (var i=0; i<count; i++) {
+        var suffix = String.fromCharCode(90 - i)
+        
+        result.venues.push({
+            name: "Venue-" + suffix,
+            id:   "V-" + suffix
+        })
+    }
+    
+    var times = [
+        "2011-04-09 14:00",
+        "2011-04-09 09:00",
+        "2011-04-10 15:00",
+        "2011-04-09 11:00",
+        "2011-04-10 16:00",
+        "2011-04-10 12:00",
+        "2011-04-09 16:00",
+        "2011-04-10 12:30",
+        "2011-04-09 17:00",
+        "2011-04-10 10:45",
+        "2011-04-10 19:00",
+        "2011-04-09 15:00"
+    ]
+    
+    for (var i=0; i<count; i++) {
+        var time = times[i].split(" ")
+        result.events.push({
+            artist: result.artists[i].name,
+            venue:  result.venues[i].id,
+            date:   time[0],
+            time:   time[1],
+            length: 90
+        })
+    }
+
+    return result

@@ -21,21 +21,62 @@ http://www.opensource.org/licenses/mit-license.php
 <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height">
 
 <link rel="stylesheet" href="css/mwa-fqf2011.css"/>
-<link rel="stylesheet" href="vendor/jo/css/jo.css"/>
 
+<script src="vendor/zepto/zepto.js"></script>
+<script src="vendor/underscore/underscore.js"></script>
 <script src="vendor/modjewel/modjewel-require.js"></script>
+
 <script src="vendor/scooj/scooj.transportd.js"></script>
 <script src="modules/common/StackTrace.transportd.js"></script>
+<script src="modules/mwa/fqf2011/DB.transportd.js"></script>
 <script src="modules/mwa/fqf2011/Main.transportd.js"></script>
+<script src="modules/mwa/fqf2011/SampleData.transportd.js"></script>
 
-<script src="vendor/jo/js/jo.js"></script>
+<script src="vendor/zepto/zepto.js"></script>
 
-<!-- ======================================================================= -->
 <script>
 function main() { require("mwa/fqf2011/Main").main() }
+
+$(document).ready(main)
 </script>
 
 </head>
 
-<body onload="main()"></body>
+<!-- ======================================================================= -->
+<body>
+
+<!-- ======================================================================= -->
+<div id="document-header">
+<a href="">artists</a>
+<a href="">venues</a>
+<a href="">events</a>
+</div>
+
+<!-- ======================================================================= -->
+<div id="document-body">
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+<p>some stuff goes here
+</div>
+
+<!-- ======================================================================= -->
+<div id="document-trailer">
+<hr>
+<p>Program Copyright (c) 2011 Patrick Mueller
+<p>Data scraped from the web.
+<p>Fork me at <a href="https://github.com/pmuellr/mwa-fqf2011">GitHub</a>.
+</div>
+
+<!-- ======================================================================= -->
+</body>
 </html>
