@@ -10,38 +10,50 @@
 all: help
 
 #-------------------------------------------------------------------------------
-build:
+build: 
 	@echo 
 	@echo ===========================================================
 	@echo building into ./deploy
 	@echo ===========================================================
 	
-	-@chmod -R +w deploy/*
+	-@chmod -R +w deploy
 	@rm -rf deploy
 	
-	@mkdir -p deploy/images/gcons
 	@mkdir -p deploy/css
+	@mkdir -p deploy/images
 	@mkdir -p deploy/modules
 	@mkdir -p deploy/vendor/zepto
 	@mkdir -p deploy/vendor/modjewel
 	@mkdir -p deploy/vendor/scooj
 	@mkdir -p deploy/vendor/underscore
 	
-	@cp index-mobile.html      deploy/index.html
-	@cp css/*                  deploy/css
-	@cp images/*.jpg           deploy/images
-	@cp images/*.png           deploy/images
-	@cp images/gcons/*.png     deploy/images/gcons
-	@cp vendor/zepto/*.js      deploy/vendor/zepto
-	@cp vendor/modjewel/*.js   deploy/vendor/modjewel
-	@cp vendor/underscore/*.js deploy/vendor/underscore
+	@echo 
+	@echo ===========================================================
+	@echo copying static files
+	@echo ===========================================================
+	cp index-mobile.html      deploy/index.html
+	cp css/*                  deploy/css
+	cp images/*.jpg           deploy/images
+	cp images/*.png           deploy/images
+	cp vendor/zepto/*.js      deploy/vendor/zepto
+	cp vendor/modjewel/*.js   deploy/vendor/modjewel
+	cp vendor/underscore/*.js deploy/vendor/underscore
 	
 	@rm -rf tmp
 	@mkdir tmp
 	
-	@python vendor/scooj/scoopc.py               --out tmp                 modules
-	@python vendor/modjewel/module2transportd.py --out deploy/modules      tmp
-	@python vendor/modjewel/module2transportd.py --out deploy/vendor/scooj vendor/scooj
+	@echo 
+	@echo ===========================================================
+	@echo compiling scoop files to JavaScript
+	@echo ===========================================================
+	python vendor/scooj/scoopc.py               --out tmp                 modules
+	
+	@echo 
+	@echo ===========================================================
+	@echo converting CommonJS modules to Transport/D format
+	@echo ===========================================================
+	python vendor/modjewel/module2transportd.py --out deploy/modules      tmp
+	python vendor/modjewel/module2transportd.py --out deploy/vendor/scooj vendor/scooj
 	
 	@chmod -R -w deploy/*
 	
@@ -49,6 +61,7 @@ build:
 
 #-------------------------------------------------------------------------------
 clean:
+	@chmod -R +w deploy
 	rm -rf tmp
 	rm -rf deploy
 	rm -rf vendor
@@ -73,6 +86,7 @@ vendor-prep:
 	@echo ===========================================================
 	@rm -rf vendor
 	@mkdir vendor
+	@touch vendor/built.txt
 
 #-------------------------------------------------------------------------------
 vendor-jo:
@@ -165,12 +179,13 @@ vendor-run-when-changed:
 #-------------------------------------------------------------------------------
 help:
 	@echo make targets available:
-	@echo \  help
-	@echo \  build
-	@echo \  deploy-local
-	@echo \  clean
-	@echo \  watch
-	@echo \  vendor
+	@echo "  help     print this help"
+	@echo "  build    build the junk"
+	@echo "  clean    clean up transient goop"
+	@echo "  watch    run 'make build' when a file changes"
+	@echo "  vendor   get the vendor files"
+	@echo
+	@echo You will need to run \'make vendor\' before doing a build.
 	
 #-------------------------------------------------------------------------------
 
