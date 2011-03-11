@@ -31,7 +31,7 @@ build:
 	@echo ===========================================================
 	@echo copying static files
 	@echo ===========================================================
-	cp index-mobile.html      deploy/index.html
+	cp index-mobile.html      deploy/index-nm.html
 	cp css/*                  deploy/css
 	cp images/*.jpg           deploy/images
 	cp images/*.png           deploy/images
@@ -39,13 +39,12 @@ build:
 	cp vendor/modjewel/*.js   deploy/vendor/modjewel
 	cp vendor/underscore/*.js deploy/vendor/underscore
 	
-	@rm -rf tmp
-	@mkdir tmp
-	
 	@echo 
 	@echo ===========================================================
 	@echo compiling scoop files to JavaScript
 	@echo ===========================================================
+	@rm -rf tmp
+	@mkdir tmp
 	python vendor/scooj/scoopc.py               --out tmp                 modules
 	
 	@echo 
@@ -54,6 +53,24 @@ build:
 	@echo ===========================================================
 	python vendor/modjewel/module2transportd.py --out deploy/modules      tmp
 	python vendor/modjewel/module2transportd.py --out deploy/vendor/scooj vendor/scooj
+	
+	@echo 
+	@echo ===========================================================
+	@echo appcache-ing
+	@echo ===========================================================
+	sed "s/not-a-manifest/manifest/" \
+	    < deploy/index-nm.html \
+	    > deploy/index.html
+	cd deploy; \
+	    find  . -type f -print | \
+	    sed s/^\.\.// | \
+	     grep -v "index-nm.html" \
+	     > ../tmp/index.manifest.files
+	echo "AddType text/cache-manifest .manifest" > deploy/.htaccess
+	echo "CACHE MANIFEST"         > deploy/index.manifest
+	echo "# `date`"              >> deploy/index.manifest
+	echo                         >> deploy/index.manifest
+	cat tmp/index.manifest.files >> deploy/index.manifest
 	
 	@chmod -R -w deploy/*
 	
@@ -86,7 +103,6 @@ vendor-prep:
 	@echo ===========================================================
 	@rm -rf vendor
 	@mkdir vendor
-	@touch vendor/built.txt
 
 #-------------------------------------------------------------------------------
 vendor-jo:
@@ -110,9 +126,10 @@ vendor-zepto:
 	@echo ===========================================================
 	@rm -rf tmp
 	@mkdir tmp
+	@mkdir vendor/zepto
 	curl --silent --show-error --output tmp/zepto.zip $(ZEPTO_URL)/zepto-$(ZEPTO_VERSION).zip
 	unzip -q tmp/zepto.zip -d tmp
-	mv tmp/zepto-$(ZEPTO_VERSION)/dist vendor/zepto
+	mv tmp/zepto-$(ZEPTO_VERSION)/dist/zepto.js vendor/zepto/zepto.js
 	rm -rf tmp
 
 #-------------------------------------------------------------------------------
@@ -122,7 +139,6 @@ vendor-underscore:
 	@echo downloading underscore
 	@echo ===========================================================
 	@mkdir  vendor/underscore
-	curl --silent --show-error --output vendor/underscore/underscore-min.js  $(UNDERSCORE_URL)/underscore-min.js
 	curl --silent --show-error --output vendor/underscore/underscore.js      $(UNDERSCORE_URL)/underscore.js
 
 #-------------------------------------------------------------------------------
