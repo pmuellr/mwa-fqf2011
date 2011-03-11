@@ -7,6 +7,7 @@
 
 requireClass ./DB
 requireClass ./SampleData
+requireClass ./Toolbar
 
 //-----------------------------------------------------------------------------
 class Main
@@ -14,12 +15,14 @@ class Main
 //-----------------------------------------------------------------------------
 static method main
     
+    new Toolbar("#main-toolbar")
+    
     data = SampleData.getData()
     // console.log(JSON.stringify(data,null,4))
     
     db = new DB()
     db.load(data)
-    db.dump()
+    // db.dump()
     
     var events = db.getEvents()
     
