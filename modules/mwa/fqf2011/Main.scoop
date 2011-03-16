@@ -15,6 +15,9 @@ class Main
 //-----------------------------------------------------------------------------
 static method main
     
+    // scroll past URL bar
+    setTimeout(function () {window.scrollTo(0, 1)}, 1000)
+    
     new Toolbar("#main-toolbar")
     
     data = SampleData.getData()

@@ -4,7 +4,7 @@
 # http://www.opensource.org/licenses/mit-license.php
 #-------------------------------------------------------------------------------
 
-.PHONY : all build test clean watch help vendor
+.PHONY : all build deploy test clean watch help vendor
 
 #-------------------------------------------------------------------------------
 all: help
@@ -32,9 +32,9 @@ build:
 	@echo copying static files
 	@echo ===========================================================
 	cp index-mobile.html      deploy/index-nm.html
+	cp data.txt               deploy
 	cp css/*                  deploy/css
-	cp images/*.jpg           deploy/images
-	cp images/*.png           deploy/images
+	cp images/*               deploy/images
 	cp vendor/zepto/*.js      deploy/vendor/zepto
 	cp vendor/modjewel/*.js   deploy/vendor/modjewel
 	cp vendor/underscore/*.js deploy/vendor/underscore
@@ -61,9 +61,13 @@ build:
 	sed "s/not-a-manifest/manifest/" \
 	    < deploy/index-nm.html \
 	    > deploy/index.html
+	sed "s/<!-- debug -->/<script src='http:\/\/pmuellr.muellerware.org:8081\/target\/target-script.js'><\/script>/" \
+	    < deploy/index.html \
+	    > deploy/index-debug.html
 	cd deploy; \
 	    find  . -type f -print | \
 	    sed s/^\.\.// | \
+	     grep -v "data.txt" | \
 	     grep -v "index-nm.html" \
 	     > ../tmp/index.manifest.files
 	echo "AddType text/cache-manifest .manifest" > deploy/.htaccess
@@ -71,10 +75,19 @@ build:
 	echo "# `date`"              >> deploy/index.manifest
 	echo                         >> deploy/index.manifest
 	cat tmp/index.manifest.files >> deploy/index.manifest
+	echo                         >> deploy/index.manifest
+	echo "NETWORK:"              >> deploy/index.manifest
+	echo "data.txt"              >> deploy/index.manifest
 	
 	@chmod -R -w deploy/*
 	
 	@echo
+
+#-------------------------------------------------------------------------------
+deploy:
+	@chmod -R +w deploy
+	scp -r deploy/* muellerware.org:web/public/mwa-fqf-2011
+	@chmod -R -w deploy
 
 #-------------------------------------------------------------------------------
 clean:
@@ -197,6 +210,7 @@ help:
 	@echo make targets available:
 	@echo "  help     print this help"
 	@echo "  build    build the junk"
+	@echo "  deploy   copy to the server"
 	@echo "  clean    clean up transient goop"
 	@echo "  watch    run 'make build' when a file changes"
 	@echo "  vendor   get the vendor files"
