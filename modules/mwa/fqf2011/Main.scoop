@@ -6,7 +6,6 @@
  */
 
 requireClass ./DB
-requireClass ./SampleData
 requireClass ./Toolbar
 
 //-----------------------------------------------------------------------------
@@ -20,18 +19,17 @@ static method main
     
     new Toolbar("#main-toolbar")
     
-    data = SampleData.getData()
     // console.log(JSON.stringify(data,null,4))
     
     db = new DB()
-    db.load(data)
+    db.load(EventData)
     // db.dump()
     
     var events = db.getEvents()
     
     var html = ""
     _.each(events, function(event) {
-        var artist = db.getArtist(event.artist)
+        var artist = db.getBand(event.band)
         var venue  = db.getVenue(event.venue)
         
         html += "<p>"

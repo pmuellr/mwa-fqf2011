@@ -1361,101 +1361,101 @@ venues:
 #---------------------------------------------------------------------
 venue:  Jackson Square 
 number: 1
-color:  39c b
+color:  39c
 
 #---------------------------------------------------------------------
 venue:  Woldenberg Riverfront Park Middle
 number: 2
-color:  9c3 b
+color:  9c3
 
 #---------------------------------------------------------------------
 venue:  Woldenberg Riverfront Park East
 number: 3
-color:  9c3 b
+color:  9c3
 
 #---------------------------------------------------------------------
 venue:  Woldenberg Riverfront Park West
 number: 4
-color:  9c3 b
+color:  9c3
 
 #---------------------------------------------------------------------
 venue:  Dunno 1
 number: 5
-color:  9c3 b
+color:  9c3
 
 #---------------------------------------------------------------------
 venue:  French Market
 number: 6
-color:  603 w
+color:  603
 
 #---------------------------------------------------------------------
 venue:  Dutch Alley at St. Philip
 number: 7
-color:  603 w
+color:  603
 
 #---------------------------------------------------------------------
 venue:  Preservation Hall
 number: 8
-color:  363 w
+color:  363
 
 #---------------------------------------------------------------------
 venue:  LSM's Old U.S. Mint East
 number: 9
-color:  fc9 b
+color:  fc9
 
 #---------------------------------------------------------------------
 venue:  LSM's Old U.S. Mint West
 number: 10
-color:  fc9 b
+color:  fc9
 
 #---------------------------------------------------------------------
 venue:  300 Bourbon
 number: 11
-color:  339 w
+color:  339
 
 #---------------------------------------------------------------------
 venue:  311 Bourbon
 number: 12
-color:  339 w
+color:  339
 
 #---------------------------------------------------------------------
 venue:  600 Bourbon
 number: 13
-color:  339 w
+color:  339
 
 #---------------------------------------------------------------------
 venue:  700 Bourbon
 number: 14
-color:  339 w
+color:  339
 
 #---------------------------------------------------------------------
 venue:  400 Royal
 number: 15
-color:  969 b
+color:  969
 
 #---------------------------------------------------------------------
 venue:  500 Royal
 number: 16
-color:  969 b
+color:  969
 
 #---------------------------------------------------------------------
 venue:  700 Royal
 number: 17
-color:  969 b
+color:  969
 
 #---------------------------------------------------------------------
 venue:  Dunno 2
 number: 18
-color:  cc9 b
+color:  cc9
 
 #---------------------------------------------------------------------
 venue:  616 St. Peter
 number: 19
-color:  c33 w
+color:  c33
 
 #---------------------------------------------------------------------
 venue:  Children's Riverfront Stage
 number: 20
-color:  c09 w
+color:  c09
 
 

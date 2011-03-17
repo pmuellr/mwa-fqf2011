@@ -32,7 +32,6 @@ build:
 	@echo copying static files
 	@echo ===========================================================
 	cp index-mobile.html      deploy/index-nm.html
-	cp data.txt               deploy
 	cp css/*                  deploy/css
 	cp images/*               deploy/images
 	cp vendor/zepto/*.js      deploy/vendor/zepto
@@ -56,6 +55,12 @@ build:
 	
 	@echo 
 	@echo ===========================================================
+	@echo building data
+	@echo ===========================================================
+	python build-data.py < data.txt > deploy/data.js
+	
+	@echo 
+	@echo ===========================================================
 	@echo appcache-ing
 	@echo ===========================================================
 	sed "s/not-a-manifest/manifest/" \
@@ -76,12 +81,13 @@ build:
 	echo                         >> deploy/index.manifest
 	cat tmp/index.manifest.files >> deploy/index.manifest
 	echo                         >> deploy/index.manifest
-	echo "NETWORK:"              >> deploy/index.manifest
-	echo "data.txt"              >> deploy/index.manifest
 	
 	@chmod -R -w deploy/*
 	
 	@echo
+	
+	@growlnotify -m "mwa-fqf2011 build finished" at `date +%H:%M:%S`
+    
 
 #-------------------------------------------------------------------------------
 deploy:

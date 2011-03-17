@@ -11,7 +11,7 @@ class DB
 //-----------------------------------------------------------------------------
 init
     var Events   = []
-    var Artists  = []
+    var Bands    = []
     var Venues   = []
     var Days     = []
     var DayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -19,7 +19,7 @@ init
 //-----------------------------------------------------------------------------
 method load(data)
 
-    this._loadArtists(data.artists)
+    this._loadBands(data.bands)
     this._loadVenues(data.venues)
     this._loadEvents(data.events)
 
@@ -28,34 +28,34 @@ method getEvents()
     return Events.slice()
 
 //-----------------------------------------------------------------------------
-method getArtist(name)
-    return Artists[name]
+method getBand(name)
+    return Bands[name]
 
 //-----------------------------------------------------------------------------
 method getVenue(id)
-    return Venues[id]
+    return Venues["#" + id]
 
 //-----------------------------------------------------------------------------
-method _loadArtists(data)
+method _loadBands(data)
 
     _.each(data, function(datum) {
         var key = datum.name
         
-        if (Artists[key]) {
-            throw new Error("artist already defined: '" + key + "'")
+        if (Bands[key]) {
+            throw new Error("band already defined: '" + key + "'")
         }
         
-        Artists[key] = datum
-        Artists.push(key)
+        Bands[key] = datum
+        Bands.push(key)
     })
     
-    Artists.sort(artistCompare)
+    Bands.sort(bandCompare)
 
 //-----------------------------------------------------------------------------
 method _loadVenues(data)
 
     _.each(data, function(datum) {
-        var key = datum.id
+        var key = "#" + datum.number
         
         if (Venues[key]) {
             throw new Error("venues already defined: '" + key + "'")
@@ -107,8 +107,8 @@ method _loadEvents(data)
 method dump
 
     console.log("")
-    console.log("artists:")
-    _.each(Artists, function(key, index, list) {
+    console.log("bands:")
+    _.each(Bands, function(key, index, list) {
         var datum = list[key]
         console.log("   " + JSON.stringify(datum))
     })
@@ -140,7 +140,7 @@ function startTime(event)
 //-----------------------------------------------------------------------------
 function endTime(event)
     var hh = event.time.hh
-    var mm = event.time.mm + event.length
+    var mm = event.time.mm + event.len
     
     while (mm >= 60) {
         hh++
@@ -172,9 +172,9 @@ function strip0(string)
     return string || 0
 
 //-----------------------------------------------------------------------------
-function artistCompare(a1, a2)
-    if (Artists[a1].name < Artists[a2].name) return -1
-    if (Artists[a1].name > Artists[a2].name) return  1
+function bandCompare(a1, a2)
+    if (Bands[a1].name < Bands[a2].name) return -1
+    if (Bands[a1].name > Bands[a2].name) return  1
     return 0
     
 //-----------------------------------------------------------------------------
@@ -191,8 +191,8 @@ function eventCompare(e1, e2)
     if (e1.time < e2.time) return -1
     if (e1.time > e2.time) return  1
     
-    if (e1.artist < e2.artist) return -1
-    if (e1.artist > e2.artist) return  1
+    if (e1.band < e2.band) return -1
+    if (e1.band > e2.band) return  1
     
     return 0
 
