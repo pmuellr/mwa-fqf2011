@@ -4,8 +4,10 @@ import os
 import re
 import sys
 import json
+import datetime
+import urlparse
 
-DEBUG = True
+DEBUG = not True
 
 #--------------------------------------------------------------------
 def main():
@@ -16,10 +18,6 @@ def main():
     
     print "var EventData = %s" % result
 
-#--------------------------------------------------------------------
-def checkData(data):
-    return data
-    
 #--------------------------------------------------------------------
 def parseData(input):
     patternComment = re.compile(r"^\s*#.*$", re.MULTILINE)
@@ -36,11 +34,10 @@ def parseData(input):
     bandData  = match.group(2)
     venueData = match.group(3)
     
-    result = {
-        "events": parseEventData(eventData),
-        "bands":  parseBandData(bandData),
-        "venues": parseVenueData(venueData),
-    }
+    result = JSDict()
+    result.events = parseEventData(eventData)
+    result.bands  = parseBandData(bandData)
+    result.venues = parseVenueData(venueData)
     
     return checkData(result)
 
@@ -64,19 +61,24 @@ def parseEventData(input):
         val = val.strip()
         
         if key == "event":
-            event = {}
+            event = JSDict()
             events.append(event)
-            event["band"] = val
+            event.band = val
             
         if key == "date":
             (date, time, len) = val.split(None, 2)
-            len = int(len)
-            event["date"] = date
-            event["time"] = time
-            event["len"]  = len
+            
+            len = intVal(len)
+            if None == len:
+                error("length not numeric in: '%s'" % line)
+                sys.exit(1)
+                
+            event.date = date
+            event.time = time
+            event.len  = len
             
         if key == "venue":
-            event["venue"] = val
+            event.venue = val
         
     return events
 
@@ -105,20 +107,20 @@ def parseBandData(input):
             val = parts[1].strip()
         
         if key == "band":
-            band = {}
+            band = JSDict()
             bands.append(band)
-            band["name"]  = val
-            band["links"] = []
-            band["desc"]  = []
+            band.name  = val
+            band.links = []
+            band.desc  = []
             inDesc = False
             
         if inDesc:
-            band["desc"].append(line)
+            band.desc.append(line)
             continue
             
         if key == "link":
             if val.strip() != "":
-                band["links"].append(val)
+                band.links.append(val)
             
         if key == "desc":
             inDesc = True
@@ -145,21 +147,145 @@ def parseVenueData(input):
         val = val.strip()
         
         if key == "venue":
-            venue = {}
+            venue = JSDict()
             venues.append(venue)
-            venue["name"] = val
+            venue.name = val
             
         if key == "number":
-            venue["number"] = val
+            venue.number = val
             
         if key == "color":
-            venue["color"] = val
+            venue.color = val
         
     return venues
+
+#--------------------------------------------------------------------
+def checkData(data):
+    tables = JSDict()
+    tables.bands  = {}
+    tables.venues = {}
+    
+    for band in data.bands:
+        tables.bands[band.name] = band
+        
+    for venue in data.venues:
+        tables.venues[venue.number] = venue
+    
+    checkEventData(data.events, tables)
+    checkBandData(data.bands)
+    checkVenueData(data.venues)
+    return data
+
+#--------------------------------------------------------------------
+# date:  "2011/04/08"
+# band:  "Benny Grunch & the Bunch"
+# venue: "1"
+# len:   90
+# time:  "11:00"
+#--------------------------------------------------------------------
+def checkEventData(data, tables):
+    for event in data:
+        item = "event: date: '%s', band: '%s', time: '%s'" % (event.date, event.band, event.time)
+        
+        yy  = intVal(event.date[0:4])
+        mm  = intVal(event.date[5:7])
+        dd  = intVal(event.date[8:10])
+        hhh = intVal(event.time[0:2])
+        mmm = intVal(event.time[3:5])
+        
+        if event.band == "": error("invalid band for %s" % item)
+        
+        if None == yy:  error("invalid year in date for %s" % item)
+        if None == mm:  error("invalid month in date for %s" % item)
+        if None == dd:  error("invalid day in date for %s" % item)
+        if None == hhh: error("invalid hour in time for %s" % item)
+        if None == mmm: error("invalid minute in time for %s" % item)
+        
+        if yy < 2011: error("invalid year in date for %s" % item)
+        if mm < 1:    error("invalid month in date for %s" % item)
+        if mm > 12:   error("invalid month in date for %s" % item)
+        if dd < 1:    error("invalid day in date for %s" % item)
+        if dd > 31:   error("invalid day in date for %s" % item)
+            
+        try:
+            datetime.date(yy, mm, dd)
+        except:
+            error("invalid day in date for %s" % item)
+            
+        if event.venue not in tables.venues: error("invalid venue for %s" % item)
+        if event.band  not in tables.bands:  error("invalid band for %s" % item)
+        
+        if event.len < 0:   error("invalid length for %s" % item)
+        if event.len > 240: error("invalid length for %s" % item)
+    
+#--------------------------------------------------------------------
+# name: "Benny Grunch & the Bunch", 
+# links: ["http://www.bennygrunch.com/"]
+# desc: [ "line1", "line2" ]
+#--------------------------------------------------------------------
+def checkBandData(data):
+    
+    for band in data:
+        item = "band: '%s'" % (band.name)
+        
+        if band.name == "": error("invalid band for %s" % item)
+        
+        for link in band.links:
+            urlParts = urlparse.urlparse(link)
+            if urlParts[0] == "": error("invalid scheme in link for %s" % item)
+            if urlParts[1] == "": error("invalid host in link for %s" % item)
+            
+        
+#--------------------------------------------------------------------
+# color:  "969"
+# name:   "500 Royal"
+# number: "16"
+#--------------------------------------------------------------------
+colorPattern = re.compile(r"[0-9A-F][0-9A-F][0-9A-F]")
+def checkVenueData(data):
+    for venue in data:
+        item = "venue: '%s'" % (venue.name)
+        
+        if venue.name == "": error("invalid name for %s" % item)
+        number = intVal(venue.number)
+        if not number:  error("invalid number for %s" % item)
+        if number < 1:  error("invalid number for %s" % item)
+        if number > 20: error("invalid number for %s" % item)
+        
+        venue.color = venue.color.upper()
+        
+        if not colorPattern.match(venue.color): error("invalid color for %s" % item)
+
+#--------------------------------------------------------------------
+def intVal(string):
+    if string == "0":  return 0
+    if string == "00": return 0
+    
+    try:
+        return int(string.lstrip("0"))
+    except:
+        return None
+
+#--------------------------------------------------------------------
+def error(message):
+    log("ERROR: %s" % message)
+    sys.exit(1)
 
 #--------------------------------------------------------------------
 def log(message):
     print >>sys.stderr, message
 
+#--------------------------------------------------------------------
+class JSDict(dict):
+    def __init__(self):
+        dict.__init__(self)
+    
+    def __getattr__(self, name):
+        return self[name]
+
+    def __setattr__(self, name, value):
+        self[name] = value
+    
+    
 #--------------------------------------------------------------------
 main()

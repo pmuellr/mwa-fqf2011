@@ -579,7 +579,7 @@ bands:
 
 #---------------------------------------------------------------------
 band: Benny Grunch & the Bunch 
-link: http://www.bennygrunch.com/
+link: http://www.bennygrunch.com
 desc: 
 
 You don’t have to get all the local in-jokes to enjoy this band’s 
