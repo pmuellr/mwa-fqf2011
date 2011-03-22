@@ -57,7 +57,7 @@ build:
 	@echo ===========================================================
 	@echo building data
 	@echo ===========================================================
-	python build-data.py < data.txt > deploy/data.js
+	python build-html.py < data.txt > deploy/index-nm.html
 	
 	@echo 
 	@echo ===========================================================

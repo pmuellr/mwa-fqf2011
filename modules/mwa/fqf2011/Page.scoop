@@ -1,0 +1,72 @@
+
+/*
+ * Copyright (c) 2011 Patrick Mueller
+ * Licensed under the MIT license: 
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+requireClass ./Page
+requireClass ./
+
+//-----------------------------------------------------------------------------
+class Page
+    this.div = document.createElement("div")
+    
+//-----------------------------------------------------------------------------
+method buildPageBar
+    var self = this
+    
+    var pageBar = document.createElement("div")
+    div.className = "pageBar"
+    
+    var pageNames = ["events", "artists", "venues", "map"]
+
+    _.each(pageNames, function(pageName) {
+        var button = document.createElement("button")
+        var text   = document.createTextNode(pageName)
+        
+        button.appendChild(text)
+        pageBar.appendChild(button)
+        
+        button.addEventHandler("click", function(){self.switchToPage(pageName)}, false)
+    })
+    
+    return pageBar
+
+//-----------------------------------------------------------------------------
+method buildFilterBar
+    var self = this
+
+    var filterBar = document.createElement("div")
+    div.className = "filterBar"
+    
+    var filterNames = ["Fri", "Sat", "Sun", this.favoriteUnselectedText]
+
+    _.each(filterNames, function(filterName) {
+        var button = document.createElement("button")
+        var text   = document.createTextNode(filterName)
+        
+        button.appendChild(text)
+        pageBar.appendChild(button)
+        
+        button.addEventHandler("click", function(){self.applyFilter(filterName)}, false)
+    })
+    
+    return filterBar
+
+    
+//-----------------------------------------------------------------------------
+method switchToPage(pageName)
+    
+    
+//-----------------------------------------------------------------------------
+method applyFilter(filterName)
+    
+    
+//-----------------------------------------------------------------------------
+getter favoriteUnselectedText
+    return "&#x2605;"
+    
+//-----------------------------------------------------------------------------
+getter favoriteUnselectedText
+    return "&#x2606;"

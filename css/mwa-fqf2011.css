@@ -13,14 +13,14 @@ body {
     font-size:              100%
 }
 
-.toolbar {
+.pagebar {
     white-space:            nowrap;
     border:                 thin solid;
     padding:                0.2em;
     overflow:               hidden;
 }
 
-.toolbar button {
+.pagebar button {
     font-size:              100%;
     height:                 2em;
 }
