@@ -22,12 +22,96 @@ def readFile():
     
 #--------------------------------------------------------------------
 def generateBody():
-    return ""
+    return BodyGenerator().getBody()
 
 #--------------------------------------------------------------------
 def writeHtml(body):
     print "%s%s%s" % (getHtmlHead(), body, getHtmlTail())
 
+#--------------------------------------------------------------------
+class BodyGenerator:
+    
+    #----------------------------------------------------------------
+    def __init__(self):
+        self.body = []
+
+    #----------------------------------------------------------------
+    def generate(self):
+        self.generateEventsPage()
+        self.generateArtistsPage()
+        self.generateVenuesPage()
+        self.generateToolsPage()
+
+    #----------------------------------------------------------------
+    def generateEventsPage(self):
+        self.pageSeparator()
+        self.add('<div id="page-events" class="page">')
+        self.pageMenu()
+        self.filterMenu()
+        self.add('<p>events')
+        self.add('</div>')
+        
+    #----------------------------------------------------------------
+    def generateArtistsPage(self):
+        self.pageSeparator()
+        self.add('<div id="page-artists" class="page">')
+        self.pageMenu()
+        self.filterMenu()
+        self.add('<p>artists')
+        self.add('</div>')
+        
+    #----------------------------------------------------------------
+    def generateVenuesPage(self):
+        self.pageSeparator()
+        self.add('<div id="page-venues" class="page">')
+        self.pageMenu()
+        self.filterMenu()
+        self.add('<p>venues')
+        self.add('</div>')
+        
+    #----------------------------------------------------------------
+    def generateToolsPage(self):
+        self.pageSeparator()
+        self.add('<div id="page-tools" class="page">')
+        self.pageMenu()
+        self.add('<p>tools')
+        self.add('</div>')
+
+    #----------------------------------------------------------------
+    def pageMenu(self):
+        self.add('')
+        self.add('   <div class="menu">')
+        self.add('      <span class="button button-events">events</span>')
+        self.add('      <span class="button button-artists">artists</span>')
+        self.add('      <span class="button button-venues">venues</span>')
+        self.add('      <span class="button button-tools">+</span>')
+        self.add('   </div>')
+        
+    #----------------------------------------------------------------
+    def filterMenu(self):
+        self.add('')
+        self.add('   <div class="menu">')
+        self.add('      <span class="toggle button-thu">thu</span>')
+        self.add('      <span class="toggle button-fri">fri</span>')
+        self.add('      <span class="toggle button-sat">sat</span>')
+        self.add('      <span class="toggle button-sun">sun</span>')
+        self.add('      <span class="toggle button-fav">&#x2605;</span>')
+        self.add('   </div>')
+        
+    #----------------------------------------------------------------
+    def pageSeparator(self):
+        self.add("")
+        self.add("<!-- ======================================================================= -->")
+        
+    #----------------------------------------------------------------
+    def add(self, line):
+        self.body.append(line)
+    
+    #----------------------------------------------------------------
+    def getBody(self):
+        self.generate()
+        return "\n".join(self.body)
+    
 #--------------------------------------------------------------------
 class Event:
     events = []
@@ -257,17 +341,14 @@ http://www.opensource.org/licenses/mit-license.php
 
 <script src="vendor/scooj/scooj.transportd.js"></script>
 <script src="modules/common/StackTrace.transportd.js"></script>
-<script src="modules/mwa/fqf2011/DB.transportd.js"></script>
-<script src="modules/mwa/fqf2011/Main.transportd.js"></script>
+<script src="modules/mwa-fqf2011/DB.transportd.js"></script>
+<script src="modules/mwa-fqf2011/Main.transportd.js"></script>
+<script src="modules/mwa-fqf2011/Page.transportd.js"></script>
 
 <script src="vendor/zepto/zepto.js"></script>
 
-<script src="data.js"></script>
-
 <script>
-function main() { require("mwa/fqf2011/Main").main() }
-
-$(document).ready(main)
+require("mwa-fqf2011/Main").main()
 </script>
 
 </head>
@@ -279,6 +360,7 @@ $(document).ready(main)
 #--------------------------------------------------------------------
 def getHtmlTail():
     return """
+
 <!-- ======================================================================= -->
 </body>
 </html>

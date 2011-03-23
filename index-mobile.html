@@ -32,17 +32,16 @@ http://www.opensource.org/licenses/mit-license.php
 
 <script src="vendor/scooj/scooj.transportd.js"></script>
 <script src="modules/common/StackTrace.transportd.js"></script>
-<script src="modules/mwa/fqf2011/DB.transportd.js"></script>
-<script src="modules/mwa/fqf2011/Main.transportd.js"></script>
+<script src="modules/mwa-fqf2011/DB.transportd.js"></script>
+<script src="modules/mwa-fqf2011/Main.transportd.js"></script>
+<script src="modules/mwa-fqf2011/Page.transportd.js"></script>
 
 <script src="vendor/zepto/zepto.js"></script>
 
 <script src="data.js"></script>
 
 <script>
-function main() { require("mwa/fqf2011/Main").main() }
-
-$(document).ready(main)
+require("mwa/fqf2011/Main").main()
 </script>
 
 </head>

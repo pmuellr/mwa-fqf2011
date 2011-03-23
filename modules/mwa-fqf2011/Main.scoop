@@ -1,0 +1,49 @@
+
+/*
+ * Copyright (c) 2011 Patrick Mueller
+ * Licensed under the MIT license: 
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+requireClass ./DB
+
+//-----------------------------------------------------------------------------
+class Main
+
+//-----------------------------------------------------------------------------
+static method main
+    $(document).ready(ready)
+    
+    addAppCacheListeners()
+
+//-----------------------------------------------------------------------------
+function ready
+    setTimeout(scrollPastUrlBar, 1000)
+    
+
+//-----------------------------------------------------------------------------
+function addAppCacheListeners
+    if (!window.applicationCache) return
+
+    window.applicationCache.addEventListener("updateready", appCacheUpdateReady, false)
+    window.applicationCache.addEventListener("error",       appCacheError,       false)
+
+//-----------------------------------------------------------------------------
+function appCacheUpdateReady
+
+    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+        window.applicationCache.swapCache()
+        
+        if (confirm("A new version of this site is available. Load it?")) {
+            window.location.reload()
+        }
+    }
+
+//-----------------------------------------------------------------------------
+function appCacheError
+    
+    alert("An error occurred updating this site.")
+
+//-----------------------------------------------------------------------------
+function scrollPastUrlBar
+    window.scrollTo(0, 1)
