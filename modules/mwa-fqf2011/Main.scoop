@@ -6,21 +6,23 @@
  */
 
 requireClass ./DB
+requireClass ./PageManager
 
 //-----------------------------------------------------------------------------
 class Main
 
 //-----------------------------------------------------------------------------
 static method main
-    $(document).ready(ready)
-    
     addAppCacheListeners()
+    
+    $(document).ready(ready)
 
 //-----------------------------------------------------------------------------
 function ready
     setTimeout(scrollPastUrlBar, 1000)
-    
 
+    PageManager.init()
+    
 //-----------------------------------------------------------------------------
 function addAppCacheListeners
     if (!window.applicationCache) return

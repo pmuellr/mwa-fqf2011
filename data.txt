@@ -1281,18 +1281,18 @@ venues:
  3  9c3  Woldenberg Riverfront Park East
  4  9c3  Woldenberg Riverfront Park West
  5  9c3  Woldenberg Riverfront Aquarium
- 6  603  French Market
- 7  603  Dutch Alley at St. Philip
- 8  363  Preservation Hall
+ 6  c69  French Market
+ 7  c69  Dutch Alley at St. Philip
+ 8  696  Preservation Hall
  9  fc9  LSM's Old U.S. Mint East
 10  fc9  LSM's Old U.S. Mint West
-11  339  300 Bourbon
-12  339  311 Bourbon
-13  339  600 Bourbon
-14  339  700 Bourbon
+11  77d  300 Bourbon
+12  77d  311 Bourbon
+13  77d  600 Bourbon
+14  77d  700 Bourbon
 15  969  400 Royal
 16  969  533 Royal
 17  969  700 Royal
 18  cc9  House of Blues
-19  c33  1116 Chartres
- M  c09  Children's Riverfront Stage
+19  e55  1116 Chartres
+ M  f4c  Children's Riverfront Stage

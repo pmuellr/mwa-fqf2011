@@ -38,8 +38,9 @@ class BodyGenerator:
     #----------------------------------------------------------------
     def generate(self):
         self.generateEventsPage()
-        self.generateArtistsPage()
+        self.generateBandsPage()
         self.generateVenuesPage()
+        self.generateMapPage()
         self.generateToolsPage()
 
     #----------------------------------------------------------------
@@ -48,16 +49,57 @@ class BodyGenerator:
         self.add('<div id="page-events" class="page">')
         self.pageMenu()
         self.filterMenu()
-        self.add('<p>events')
+
+        events = Event.getEventsByTime()
+
+        self.add('<table width="100%" cellspacing="0" cellpadding="3" rules="rows">')
+        
+        headerStyle = 'style="color:white; background-color:black"'
+        
+        lastDate = ""
+        for event in events:
+            if event.date != lastDate:
+                self.add('<tr class="header"><td colspan="4" %s>%s - %s' % (headerStyle, event.day, event.date))
+                lastDate = event.date
+                
+            venue = Venue.getVenue(event.venue)
+            venueBackground = 'style="background-color:#%s"' % venue.color
+            
+            self.add('<tr>')
+            self.add('<td valign="top">&#x2606;')
+            self.add('<td valign="top" %s>%s' % (venueBackground, event.venue))
+            self.add('<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
+            self.add('<td valign="top">%s' % event.band)
+        
+        self.add('</table>')
+        
         self.add('</div>')
         
     #----------------------------------------------------------------
-    def generateArtistsPage(self):
+    def generateBandsPage(self):
         self.pageSeparator()
-        self.add('<div id="page-artists" class="page">')
+        self.add('<div id="page-bands" class="page">')
         self.pageMenu()
         self.filterMenu()
-        self.add('<p>artists')
+
+        events = Event.getEventsByBand()
+
+        self.add('<table width="100%" cellspacing="0" cellpadding="3" rules="rows">')
+        
+        for event in events:
+        
+            venue = Venue.getVenue(event.venue)
+            venueBackground = 'style="background-color:#%s"' % venue.color
+        
+            self.add('<tr>')
+            self.add('<td valign="top">&#x2606;')
+            self.add('<td valign="top" %s>%s' % (venueBackground, event.venue))
+            self.add('<td valign="top">%s' % event.day)
+            self.add('<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
+            self.add('<td valign="top">%s' % event.band)
+        
+        self.add('</table>')
+
         self.add('</div>')
         
     #----------------------------------------------------------------
@@ -66,9 +108,38 @@ class BodyGenerator:
         self.add('<div id="page-venues" class="page">')
         self.pageMenu()
         self.filterMenu()
-        self.add('<p>venues')
+
+        events = Event.getEventsByVenue()
+
+        self.add('<table width="100%" cellspacing="0" cellpadding="3" rules="rows">')
+        
+        lastVenue = ""
+        for event in events:
+            if event.venue != lastVenue:
+                venue = Venue.getVenue(event.venue)
+                venueName = venue.name
+                venueBackground = 'style="background-color:#%s"' % venue.color
+                self.add('<tr class="header"><td colspan="4" %s>%s - %s' % (venueBackground, event.venue, venueName))
+                lastVenue = event.venue
+                
+            self.add('<tr>')
+            self.add('<td valign="top">&#x2606;')
+            self.add('<td valign="top">%s' % event.day)
+            self.add('<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
+            self.add('<td valign="top">%s' % event.band)
+        
+        self.add('</table>')
+
         self.add('</div>')
         
+    #----------------------------------------------------------------
+    def generateMapPage(self):
+        self.pageSeparator()
+        self.add('<div id="page-map" class="page">')
+        self.pageMenu()
+        self.add('<img src="images/2011-fqf-map-large.png">')
+        self.add('</div>')
+
     #----------------------------------------------------------------
     def generateToolsPage(self):
         self.pageSeparator()
@@ -82,8 +153,9 @@ class BodyGenerator:
         self.add('')
         self.add('   <div class="menu">')
         self.add('      <span class="button button-events">events</span>')
-        self.add('      <span class="button button-artists">artists</span>')
+        self.add('      <span class="button button-bands">bands</span>')
         self.add('      <span class="button button-venues">venues</span>')
+        self.add('      <span class="button button-map">map</span>')
         self.add('      <span class="button button-tools">+</span>')
         self.add('   </div>')
         
@@ -118,20 +190,72 @@ class Event:
 
     #----------------------------------------------------------------
     @staticmethod
-    def getEvents():
-        return Event.events[:]
+    def getEventsByTime():
+        result = Event.events[:]
+        result.sort(compareEventsByTime)
+        return result
+
+    #----------------------------------------------------------------
+    @staticmethod
+    def getEventsByBand():
+        result = Event.events[:]
+        result.sort(compareEventsByBand)
+        return result
+
+    #----------------------------------------------------------------
+    @staticmethod
+    def getEventsByVenue():
+        result = Event.events[:]
+        result.sort(compareEventsByVenue)
+        return result
 
     #----------------------------------------------------------------
     def __init__(self, venue, date, timeS, timeSampm, timeE, timeEampm, band):
         self.venue     = venue
         self.date      = date
         self.timeS     = timeS
-        self.timeSampm = timeS
+        self.timeSampm = timeSampm
         self.timeE     = timeE
-        self.timeEampm = timeE
+        self.timeEampm = timeEampm
         self.band      = band
         
+        yy = int(date[0:4])
+        mm = int(date[5:7])
+        dd = int(date[8:10])
+        
+        self.day = datetime.date(yy, mm, dd).strftime("%a")
+        
         Event.events.append(self)
+        
+#--------------------------------------------------------------------
+def compareEventsByTime(e1, e2):
+    result = cmp(e1.date, e2.date)
+    if result: return result
+    
+    result = cmp(e1.timeS + e1.timeSampm, e2.timeS + e2.timeSampm)
+    if result: return result
+    
+    return cmp(e1.venue, e2.venue)
+
+#--------------------------------------------------------------------
+def compareEventsByBand(e1, e2):
+    result = cmp(e1.band, e2.band)
+    if result: return result
+
+    result = cmp(e1.date, e2.date)
+    if result: return result
+    
+    return cmp(e1.timeS + e1.timeSampm, e2.timeS + e2.timeSampm)
+
+#--------------------------------------------------------------------
+def compareEventsByVenue(e1, e2):
+    result = cmp(e1.venue, e2.venue)
+    if result: return result
+    
+    result = cmp(e1.date, e2.date)
+    if result: return result
+    
+    return cmp(e1.timeS + e1.timeSampm, e2.timeS + e2.timeSampm)
 
 #--------------------------------------------------------------------
 class Band:
@@ -210,13 +334,13 @@ def parseEventData(input):
         parts = line.split(None, 6)
         if len(parts) != 7: error("event line invalid: %s" % line)
             
-        venue     = parts[0].upper()
+        venue     = adjustVenue(parts[0].upper())
         date      = parts[1]
         timeS     = parts[2]
         timeSampm = parts[3].lower()
         timeE     = parts[4]
         timeEampm = parts[5].lower()
-        band      = parts[6]
+        band      = htmlEscape(parts[6])
         
         Event(venue, date, timeS, timeSampm, timeE, timeEampm, band)
 
@@ -243,11 +367,11 @@ def parseBandData(input):
             val = parts[1].strip()
         
         if key == "band":
-            band = Band(val)
+            band = Band(htmlEscape(val))
             inDesc = False
             
         if inDesc:
-            band.desc.append(line)
+            band.desc.append(htmlEscape(line))
             continue
             
         if key == "link":
@@ -270,15 +394,23 @@ def parseVenueData(input):
         parts = line.split(None, 2)
         if len(parts) != 3: error("venue line invalid: %s" % line)
             
-        number    = parts[0].upper()
+        number    = adjustVenue(parts[0].upper())
         color     = parts[1].lower()
         name      = parts[2]
 
         Venue(name, number, color)
 
 #--------------------------------------------------------------------
+def adjustVenue(venue):
+    if re.match(r"\d+", venue):
+        return venue.rjust(2)
+    else:
+        return venue
+    
+
+#--------------------------------------------------------------------
 def validateData():
-    events = Event.getEvents()
+    events = Event.getEventsByTime()
     
     errors = False
     for event in events:
@@ -295,6 +427,10 @@ def validateData():
             
     if errors:
         error("stopping because of errors")
+
+#--------------------------------------------------------------------
+def htmlEscape(string):
+    return string.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 #--------------------------------------------------------------------
 def error(message):
@@ -343,7 +479,7 @@ http://www.opensource.org/licenses/mit-license.php
 <script src="modules/common/StackTrace.transportd.js"></script>
 <script src="modules/mwa-fqf2011/DB.transportd.js"></script>
 <script src="modules/mwa-fqf2011/Main.transportd.js"></script>
-<script src="modules/mwa-fqf2011/Page.transportd.js"></script>
+<script src="modules/mwa-fqf2011/PageManager.transportd.js"></script>
 
 <script src="vendor/zepto/zepto.js"></script>
 

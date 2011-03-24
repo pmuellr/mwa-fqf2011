@@ -8,3 +8,52 @@
 //-----------------------------------------------------------------------------
 class DB
 
+//-----------------------------------------------------------------------------
+init
+    var prefix = "mwa-fqf2011"
+    
+    var keyLastPage  = prefix + ".LastPage"
+    var keyFavorites = prefix + ".Favorites"
+    
+    var favorites = {}
+
+//-----------------------------------------------------------------------------
+static method getLastPage
+    return localStorage.getItem(keyLastPage) || "events"
+    
+//-----------------------------------------------------------------------------
+static method setLastPage(pageName)
+    localStorage.setItem(keyLastPage, pageName)
+    
+//-----------------------------------------------------------------------------
+static method getFavorites
+    try {
+        favorites = JSON.parse(localStorage.getItem(keyFavorites))
+    }
+    catch(e) {
+        favorites = []
+    }
+    
+    return favorites
+
+//-----------------------------------------------------------------------------
+static method addFavorites(value)
+    favorites[value] = true
+    
+    saveFavorites()
+    
+//-----------------------------------------------------------------------------
+static method removeFavorites(value)
+    delete favorites[value]
+    
+    saveFavorites()    
+    
+//-----------------------------------------------------------------------------
+function saveFavorites
+    var list = []
+    
+    for (var key in favorites) {
+        list.push(key)
+    }
+    
+    localStorage.setItem(JSON.stringify(list))

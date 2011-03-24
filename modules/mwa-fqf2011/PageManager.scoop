@@ -1,0 +1,40 @@
+
+/*
+ * Copyright (c) 2011 Patrick Mueller
+ * Licensed under the MIT license: 
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+requireClass ./DB
+
+//-----------------------------------------------------------------------------
+class PageManager
+
+//-----------------------------------------------------------------------------
+function showPage(pageName)
+    $("#page-" + pageName).show()
+    DB.setLastPage(pageName)
+
+//-----------------------------------------------------------------------------
+function setupPage(pageName)
+    var pageButtons = $(".button-" + pageName)
+    
+    pageButtons.each(function() {
+        this.pageName = pageName
+    })
+
+    pageButtons.bind("click", function() {
+        $(".page").hide()
+        showPage(this.pageName)
+    })
+        
+//-----------------------------------------------------------------------------
+static method init
+    var pages = "events bands venues map tools".split(/\s+/)
+    
+    _.each(pages, function(page) {
+        setupPage(page)
+    })
+    
+    showPage(DB.getLastPage())
+

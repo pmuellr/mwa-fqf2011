@@ -31,7 +31,6 @@ build:
 	@echo ===========================================================
 	@echo copying static files
 	@echo ===========================================================
-	cp index-mobile.html      deploy/index-nm.html
 	cp css/*                  deploy/css
 	cp images/*               deploy/images
 	cp vendor/zepto/*.js      deploy/vendor/zepto
@@ -67,20 +66,19 @@ build:
 	    < deploy/index-nm.html \
 	    > deploy/index.html
 	sed "s/<!-- debug -->/<script src='http:\/\/pmuellr.muellerware.org:8081\/target\/target-script.js'><\/script>/" \
-	    < deploy/index.html \
+	    < deploy/index-nm.html \
 	    > deploy/index-debug.html
 	cd deploy; \
 	    find  . -type f -print | \
 	    sed s/^\.\.// | \
 	     grep -v "data.txt" | \
-	     grep -v "index-nm.html" \
+	     grep -v "index.*html" \
 	     > ../tmp/index.manifest.files
 	echo "AddType text/cache-manifest .manifest" > deploy/.htaccess
 	echo "CACHE MANIFEST"         > deploy/index.manifest
 	echo "# `date`"              >> deploy/index.manifest
 	echo                         >> deploy/index.manifest
 	cat tmp/index.manifest.files >> deploy/index.manifest
-	echo                         >> deploy/index.manifest
 	
 	@chmod -R -w deploy/*
 	
