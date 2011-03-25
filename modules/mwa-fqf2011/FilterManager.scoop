@@ -1,0 +1,81 @@
+
+/*
+ * Copyright (c) 2011 Patrick Mueller
+ * Licensed under the MIT license: 
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+requireClass ./DB
+
+//-----------------------------------------------------------------------------
+class FilterManager
+
+//-----------------------------------------------------------------------------
+init
+    var filters = DB.getFilters()
+    
+//-----------------------------------------------------------------------------
+static method init
+    var filterNames = "day-Thu day-Fri day-Sat day-Sun fav".split(/\s+/)
+    
+    _.each(filterNames, function(filter) {
+        setupFilter(filter)
+    })
+    
+    _.each(filters, function(filter) {
+        turnOn(filter)
+    })
+    
+//-----------------------------------------------------------------------------
+function setupFilter(filter) 
+    var buttons = $(".button-" + filter)
+
+    buttons.bind("click", function() {
+        filterClicked(filter)
+    })
+
+//-----------------------------------------------------------------------------
+function filterClicked(filter)
+    if (_.include(filters, filter)) {
+        turnOff(filter)
+    }
+    
+    else {
+        turnOn(filter)
+    }
+
+//-----------------------------------------------------------------------------
+function turnOff(filter)
+    filters = DB.removeFilter(filter)
+    $(".button-" + filter).removeClass("on")
+    
+    if (noDaysSet()) {
+        $(".day-Thu").css("display", "table-row")
+        $(".day-Fri").css("display", "table-row")
+        $(".day-Sat").css("display", "table-row")
+        $(".day-Sun").css("display", "table-row")
+        return
+    }
+    
+    $("." + filter).css("display", "none")
+
+//-----------------------------------------------------------------------------
+function turnOn(filter)
+    if (noDaysSet()) {
+        $(".day-Thu").css("display", "none")
+        $(".day-Fri").css("display", "none")
+        $(".day-Sat").css("display", "none")
+        $(".day-Sun").css("display", "none")
+    }
+    
+    filters = DB.addFilter(filter)
+    $(".button-" + filter).addClass("on")
+    $("." + filter).css("display", "table-row")
+
+//-----------------------------------------------------------------------------
+function noDaysSet()
+    if (!filters.length) return true
+    if ((filters.length == 1) && (filters[0] == "Fav")) return true
+
+    return false
+

@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+# Copyright (c) 2011 Patrick Mueller
+# Licensed under the MIT license: 
+# http://www.opensource.org/licenses/mit-license.php
+
 import os
 import re
 import sys
@@ -52,26 +56,29 @@ class BodyGenerator:
 
         events = Event.getEventsByTime()
 
-        self.add('<table width="100%" cellspacing="0" cellpadding="3" rules="rows">')
+        self.add('')
+        self.add('\t<table width="100%" cellspacing="0" cellpadding="3" rules="rows">')
         
         headerStyle = 'style="color:white; background-color:black"'
         
         lastDate = ""
         for event in events:
             if event.date != lastDate:
-                self.add('<tr class="header"><td colspan="4" %s>%s - %s' % (headerStyle, event.day, event.date))
+                self.add('')
+                self.add('\t\t<tr class="header"><td colspan="4" %s>%s - %s' % (headerStyle, event.day, event.date))
+                self.add('')
                 lastDate = event.date
                 
             venue = Venue.getVenue(event.venue)
             venueBackground = 'style="background-color:#%s"' % venue.color
             
-            self.add('<tr>')
-            self.add('<td valign="top">&#x2606;')
-            self.add('<td valign="top" %s>%s' % (venueBackground, event.venue))
-            self.add('<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
-            self.add('<td valign="top">%s' % event.band)
+            self.add('\t\t<tr class="entry day-' + event.day + '">')
+            self.add('\t\t\t<td valign="top">&#x2606;')
+            self.add('\t\t\t<td valign="top" %s>%s' % (venueBackground, event.venue))
+            self.add('\t\t\t<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
+            self.add('\t\t\t<td valign="top">%s' % event.band)
         
-        self.add('</table>')
+        self.add('\t</table>')
         
         self.add('</div>')
         
@@ -84,21 +91,22 @@ class BodyGenerator:
 
         events = Event.getEventsByBand()
 
-        self.add('<table width="100%" cellspacing="0" cellpadding="3" rules="rows">')
+        self.add('')
+        self.add('\t<table width="100%" cellspacing="0" cellpadding="3" rules="rows">')
         
         for event in events:
         
             venue = Venue.getVenue(event.venue)
             venueBackground = 'style="background-color:#%s"' % venue.color
         
-            self.add('<tr>')
-            self.add('<td valign="top">&#x2606;')
-            self.add('<td valign="top" %s>%s' % (venueBackground, event.venue))
-            self.add('<td valign="top">%s' % event.day)
-            self.add('<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
-            self.add('<td valign="top">%s' % event.band)
+            self.add('\t\t<tr class="entry day-' + event.day + '">')
+            self.add('\t\t\t<td valign="top">&#x2606;')
+            self.add('\t\t\t<td valign="top" %s>%s' % (venueBackground, event.venue))
+            self.add('\t\t\t<td valign="top">%s' % event.day)
+            self.add('\t\t\t<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
+            self.add('\t\t\t<td valign="top">%s' % event.band)
         
-        self.add('</table>')
+        self.add('\t</table>')
 
         self.add('</div>')
         
@@ -111,7 +119,8 @@ class BodyGenerator:
 
         events = Event.getEventsByVenue()
 
-        self.add('<table width="100%" cellspacing="0" cellpadding="3" rules="rows">')
+        self.add('')
+        self.add('\t<table width="100%" cellspacing="0" cellpadding="3" rules="rows">')
         
         lastVenue = ""
         for event in events:
@@ -119,16 +128,18 @@ class BodyGenerator:
                 venue = Venue.getVenue(event.venue)
                 venueName = venue.name
                 venueBackground = 'style="background-color:#%s"' % venue.color
-                self.add('<tr class="header"><td colspan="4" %s>%s - %s' % (venueBackground, event.venue, venueName))
+                self.add('')
+                self.add('\t\t<tr class="header"><td colspan="4" %s>%s - %s' % (venueBackground, event.venue, venueName))
+                self.add('')
                 lastVenue = event.venue
                 
-            self.add('<tr>')
-            self.add('<td valign="top">&#x2606;')
-            self.add('<td valign="top">%s' % event.day)
-            self.add('<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
-            self.add('<td valign="top">%s' % event.band)
+            self.add('\t\t<tr class="entry day-' + event.day + '">')
+            self.add('\t\t\t<td valign="top">&#x2606;')
+            self.add('\t\t\t<td valign="top">%s' % event.day)
+            self.add('\t\t\t<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
+            self.add('\t\t\t<td valign="top">%s' % event.band)
         
-        self.add('</table>')
+        self.add('\t</table>')
 
         self.add('</div>')
         
@@ -137,7 +148,7 @@ class BodyGenerator:
         self.pageSeparator()
         self.add('<div id="page-map" class="page">')
         self.pageMenu()
-        self.add('<img src="images/2011-fqf-map-large.png">')
+        self.add('\t<img src="images/2011-fqf-map-large.png">')
         self.add('</div>')
 
     #----------------------------------------------------------------
@@ -145,30 +156,54 @@ class BodyGenerator:
         self.pageSeparator()
         self.add('<div id="page-tools" class="page">')
         self.pageMenu()
-        self.add('<p>tools')
+        
+        self.add('''
+<h2>Help</h2>
+
+<p>The line of buttons along the top - events, bands, etc - switch you to 
+different pages in the application.  The pages which list events contain
+a list of filter buttons underneath it; by clicking a filter button, you
+change whether events which match the filter are shown or not.
+
+<p>The stars beside an event can be clicked to mark an event as a favorite.
+If you've selected some favorites, a favorite filter will be available
+in the filter buttons.
+
+<p>Clicking on an entry will expand it, providing more information, or
+contract it if it's expanded.
+
+<h2>Diagnostics</h2>
+<p>Screen dimensions: <span id="screen-width"></span> x <span id="screen-height"></span>
+
+<h2>Appcache events</h2>
+<pre id="appcache-events">
+</pre>
+''')
+
         self.add('</div>')
 
     #----------------------------------------------------------------
     def pageMenu(self):
         self.add('')
-        self.add('   <div class="menu">')
-        self.add('      <span class="button button-events">events</span>')
-        self.add('      <span class="button button-bands">bands</span>')
-        self.add('      <span class="button button-venues">venues</span>')
-        self.add('      <span class="button button-map">map</span>')
-        self.add('      <span class="button button-tools">+</span>')
-        self.add('   </div>')
+        self.add('\t<h1>French Quarter Festival 2011</h1>')
+        self.add('\t<div class="menu">')
+        self.add('\t\t<span class="button button-events">events</span>')
+        self.add('\t\t<span class="button button-bands">bands</span>')
+        self.add('\t\t<span class="button button-venues">venues</span>')
+        self.add('\t\t<span class="button button-map">map</span>')
+        self.add('\t\t<span class="button button-tools">+</span>')
+        self.add('\t</div>')
         
     #----------------------------------------------------------------
     def filterMenu(self):
         self.add('')
-        self.add('   <div class="menu">')
-        self.add('      <span class="toggle button-thu">thu</span>')
-        self.add('      <span class="toggle button-fri">fri</span>')
-        self.add('      <span class="toggle button-sat">sat</span>')
-        self.add('      <span class="toggle button-sun">sun</span>')
-        self.add('      <span class="toggle button-fav">&#x2605;</span>')
-        self.add('   </div>')
+        self.add('\t<div class="menu">')
+        self.add('\t\t<span class="toggle button-day-Thu">thu</span>')
+        self.add('\t\t<span class="toggle button-day-Fri">fri</span>')
+        self.add('\t\t<span class="toggle button-day-Sat">sat</span>')
+        self.add('\t\t<span class="toggle button-day-Sun">sun</span>')
+        self.add('\t\t<span class="toggle button-fav">&#x2605;</span>')
+        self.add('\t</div>')
         
     #----------------------------------------------------------------
     def pageSeparator(self):
@@ -429,6 +464,10 @@ def validateData():
         error("stopping because of errors")
 
 #--------------------------------------------------------------------
+def bandToId(band):
+    return band
+
+#--------------------------------------------------------------------
 def htmlEscape(string):
     return string.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
@@ -467,7 +506,10 @@ http://www.opensource.org/licenses/mit-license.php
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://muellerware.org/mwa-fqf-2011/images/mwa-fqf2011-desktop-114x114.png"/>
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
+<!--
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
 <link rel="stylesheet" href="css/mwa-fqf2011.css"/>
 
@@ -480,6 +522,8 @@ http://www.opensource.org/licenses/mit-license.php
 <script src="modules/mwa-fqf2011/DB.transportd.js"></script>
 <script src="modules/mwa-fqf2011/Main.transportd.js"></script>
 <script src="modules/mwa-fqf2011/PageManager.transportd.js"></script>
+<script src="modules/mwa-fqf2011/FilterManager.transportd.js"></script>
+<script src="modules/mwa-fqf2011/Tools.transportd.js"></script>
 
 <script src="vendor/zepto/zepto.js"></script>
 

@@ -57,7 +57,7 @@ events:
  3  2011/04/08   7:30 PM     9:00 PM    Glen David Andrews with Special Guest Amanda Shaw
 11  2011/04/08   2:30 PM     4:30 PM    A Celebration of Modern Jazz Masters by Victor Atkins, Ed Peterson and Steve Masakowski
 11  2011/04/08   5:00 PM     7:30 PM    A Piano Tribute to Professor Longhair featuring Tom Worrell
-11  2011/04/08   8:00 PM    12:00 AM    Leon "Kid Chocolate" Brown
+11  2011/04/08   8:00 PM    12:00 AM    Leon 'Kid Chocolate' Brown
 
 10  2011/04/08  11:15 AM    12:30 PM    Patrice Fisher and Arpa
 10  2011/04/08  12:45 PM     2:00 PM    Riccardo Crespo & Sol Brasil
@@ -858,7 +858,7 @@ band: Lena Prima
 band: Leo Jackson and the Melody Clouds
 
 #---------------------------------------------------------------------
-band: Leon "Kid Chocolate" Brown
+band: Leon 'Kid Chocolate' Brown
 
 #---------------------------------------------------------------------
 band: Leroy Jones' Original Hurricane Brass Band

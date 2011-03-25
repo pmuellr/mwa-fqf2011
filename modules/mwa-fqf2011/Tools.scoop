@@ -1,0 +1,41 @@
+
+/*
+ * Copyright (c) 2011 Patrick Mueller
+ * Licensed under the MIT license: 
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+requireClass ./DB
+
+//-----------------------------------------------------------------------------
+class Tools
+
+//-----------------------------------------------------------------------------
+static method init
+    Tools.showAppCacheMessages()
+    Tools.setScreenDimensions()
+
+//-----------------------------------------------------------------------------
+static method setScreenDimensions
+    $("#screen-width" )[0].innerText = screen.width
+    $("#screen-height")[0].innerText = screen.height
+    
+//-----------------------------------------------------------------------------
+static method addAppCacheMessage(message)
+    message = new Date() + "\n" + message + "\n"
+    
+    DB.addAppCacheMessage(message)
+    
+    Tools.showAppCacheMessages()
+
+//-----------------------------------------------------------------------------
+static method showAppCacheMessages
+    
+    var pre = $("#appcache-events")
+    if (!pre.length) return
+    
+    var messages = DB.getAppCacheMessages()
+    
+    messages = messages.join("\n")
+    
+    pre[0].innerText = messages

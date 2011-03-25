@@ -6,7 +6,9 @@
  */
 
 requireClass ./DB
+requireClass ./Tools
 requireClass ./PageManager
+requireClass ./FilterManager
 
 //-----------------------------------------------------------------------------
 class Main
@@ -22,29 +24,27 @@ function ready
     setTimeout(scrollPastUrlBar, 1000)
 
     PageManager.init()
+    Tools.init()
+    FilterManager.init()
     
 //-----------------------------------------------------------------------------
 function addAppCacheListeners
     if (!window.applicationCache) return
 
     window.applicationCache.addEventListener("updateready", appCacheUpdateReady, false)
-    window.applicationCache.addEventListener("error",       appCacheError,       false)
 
 //-----------------------------------------------------------------------------
 function appCacheUpdateReady
 
-    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-        window.applicationCache.swapCache()
-        
-        if (confirm("A new version of this site is available. Load it?")) {
-            window.location.reload()
-        }
-    }
-
-//-----------------------------------------------------------------------------
-function appCacheError
+    if (window.applicationCache.status != window.applicationCache.UPDATEREADY) return
     
-    alert("An error occurred updating this site.")
+    window.applicationCache.swapCache()
+        
+    if (confirm("A new version of this site is available. Load it?")) {
+        window.location.reload()
+    }
+    
+    Tools.addAppCacheMessage("update ready")
 
 //-----------------------------------------------------------------------------
 function scrollPastUrlBar

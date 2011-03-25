@@ -65,9 +65,9 @@ build:
 	sed "s/not-a-manifest/manifest/" \
 	    < deploy/index-nm.html \
 	    > deploy/index.html
-	sed "s/<!-- debug -->/<script src='http:\/\/pmuellr.muellerware.org:8081\/target\/target-script.js'><\/script>/" \
-	    < deploy/index-nm.html \
-	    > deploy/index-debug.html
+#	sed "s/<!-- debug -->/<script src='http:\/\/pmuellr.muellerware.org:8081\/target\/target-script.js'><\/script>/" \
+#	    < deploy/index-nm.html \
+#	    > deploy/index-debug.html
 	cd deploy; \
 	    find  . -type f -print | \
 	    sed s/^\.\.// | \

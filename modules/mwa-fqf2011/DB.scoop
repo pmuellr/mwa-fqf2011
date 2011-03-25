@@ -8,52 +8,99 @@
 //-----------------------------------------------------------------------------
 class DB
 
+//=============================================================================
+
+static method getLastPage
+    return localStorage.getItem(keyLastPage) || "tools"
+    
+static method setLastPage(pageName)
+    localStorage.setItem(keyLastPage, pageName)
+
+//=============================================================================
+
+static method getAppCacheMessages
+    return appCacheMessages.getList().reverse()
+
+static method addAppCacheMessage(message)
+    return appCacheMessages.addItem(message)
+    
+//=============================================================================
+    
+static method getFilters
+    return filters.getList()
+
+static method addFilter(value)
+    return filters.addItem(value)
+    
+static method removeFilter(value)
+    return filters.removeItem(value)
+    
+//=============================================================================
+    
+static method getFavorites
+    return favorites.getList()
+
+static method addFavorites(value)
+    return favorites.addItem(value)
+    
+static method removeFavorites(value)
+    return favorites.removeItem(value)
+    
+//=============================================================================
+class ListSetting(storageKey)
+    this.storageKey = storageKey
+
+//-----------------------------------------------------------------------------
+method getList
+    try {
+        this.list = JSON.parse(localStorage.getItem(this.storageKey))
+    }
+    catch(e) {
+        this.list = []
+    }
+    
+    if (null == this.list) {
+        this.list = []
+    }
+    
+    return this.list.slice()
+
+//-----------------------------------------------------------------------------
+method _putList
+    localStorage.setItem(this.storageKey, JSON.stringify(this.list))
+    
+//-----------------------------------------------------------------------------
+method addItem(item)
+    this.getList()
+    
+    if (_.include(this.list, item)) return this.list.slice()
+    
+    this.list.push(item)
+
+    this._putList()
+    
+    return this.list.slice()
+
+//-----------------------------------------------------------------------------
+method removeItem(item)
+    this.getList()
+    
+    this.list = _.without(this.list, item)
+
+    this._putList()
+
+    return this.list.slice()
+
 //-----------------------------------------------------------------------------
 init
     var prefix = "mwa-fqf2011"
     
-    var keyLastPage  = prefix + ".LastPage"
-    var keyFavorites = prefix + ".Favorites"
+    var keyLastPage         = prefix + ".LastPage"
+    var keyFavorites        = prefix + ".Favorites"
+    var keyAppCacheMessages = prefix + ".AppCacheMessages"
+    var keyFilters          = prefix + ".Filters"
     
-    var favorites = {}
+    var filters          = new ListSetting(keyFilters)
+    var favorites        = new ListSetting(keyFavorites)
+    var appCacheMessages = new ListSetting(keyAppCacheMessages)
 
-//-----------------------------------------------------------------------------
-static method getLastPage
-    return localStorage.getItem(keyLastPage) || "events"
-    
-//-----------------------------------------------------------------------------
-static method setLastPage(pageName)
-    localStorage.setItem(keyLastPage, pageName)
-    
-//-----------------------------------------------------------------------------
-static method getFavorites
-    try {
-        favorites = JSON.parse(localStorage.getItem(keyFavorites))
-    }
-    catch(e) {
-        favorites = []
-    }
-    
-    return favorites
-
-//-----------------------------------------------------------------------------
-static method addFavorites(value)
-    favorites[value] = true
-    
-    saveFavorites()
-    
-//-----------------------------------------------------------------------------
-static method removeFavorites(value)
-    delete favorites[value]
-    
-    saveFavorites()    
-    
-//-----------------------------------------------------------------------------
-function saveFavorites
-    var list = []
-    
-    for (var key in favorites) {
-        list.push(key)
-    }
-    
-    localStorage.setItem(JSON.stringify(list))
