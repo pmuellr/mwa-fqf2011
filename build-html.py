@@ -72,11 +72,11 @@ class BodyGenerator:
             venue = Venue.getVenue(event.venue)
             venueBackground = 'style="background-color:#%s"' % venue.color
             
-            self.add('\t\t<tr class="entry day-' + event.day + '">')
-            self.add('\t\t\t<td valign="top">&#x2606;')
+            self.add('\t\t<tr class="entry not-fav day-%s %s">' % (event.day, event.id))
+            self.add('\t\t\t<td valign="top" class="fav-entry-button">&#x2606;')
             self.add('\t\t\t<td valign="top" %s>%s' % (venueBackground, event.venue))
-            self.add('\t\t\t<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
-            self.add('\t\t\t<td valign="top">%s' % event.band)
+            self.add('\t\t\t<td valign="top" align="right">%s%s&nbsp;-&nbsp' % (event.timeS, event.timeSampm))
+            self.add('\t\t\t<td valign="top" width="100%%">%s' % event.band)
         
         self.add('\t</table>')
         
@@ -99,12 +99,12 @@ class BodyGenerator:
             venue = Venue.getVenue(event.venue)
             venueBackground = 'style="background-color:#%s"' % venue.color
         
-            self.add('\t\t<tr class="entry day-' + event.day + '">')
-            self.add('\t\t\t<td valign="top">&#x2606;')
+            self.add('\t\t<tr class="entry not-fav day-%s %s">' % (event.day, event.id))
+            self.add('\t\t\t<td valign="top" class="fav-entry-button">&#x2606;')
             self.add('\t\t\t<td valign="top" %s>%s' % (venueBackground, event.venue))
             self.add('\t\t\t<td valign="top">%s' % event.day)
-            self.add('\t\t\t<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
-            self.add('\t\t\t<td valign="top">%s' % event.band)
+            self.add('\t\t\t<td valign="top" align="right">%s%s&nbsp;-&nbsp' % (event.timeS, event.timeSampm))
+            self.add('\t\t\t<td valign="top" width="100%%">%s' % event.band)
         
         self.add('\t</table>')
 
@@ -133,11 +133,11 @@ class BodyGenerator:
                 self.add('')
                 lastVenue = event.venue
                 
-            self.add('\t\t<tr class="entry day-' + event.day + '">')
-            self.add('\t\t\t<td valign="top">&#x2606;')
+            self.add('\t\t<tr class="entry not-fav day-%s %s">' % (event.day, event.id))
+            self.add('\t\t\t<td valign="top" class="fav-entry-button">&#x2606;')
             self.add('\t\t\t<td valign="top">%s' % event.day)
-            self.add('\t\t\t<td valign="top" align="right">%s%s' % (event.timeS, event.timeSampm))
-            self.add('\t\t\t<td valign="top">%s' % event.band)
+            self.add('\t\t\t<td valign="top" align="right">%s%s&nbsp;-&nbsp' % (event.timeS, event.timeSampm))
+            self.add('\t\t\t<td valign="top" width="100%%">%s' % event.band)
         
         self.add('\t</table>')
 
@@ -253,6 +253,7 @@ class Event:
         self.timeE     = timeE
         self.timeEampm = timeEampm
         self.band      = band
+        self.id        = re.sub(r"[^\w]", "-", "fav-%s %s %s" % (band, date, timeS))
         
         yy = int(date[0:4])
         mm = int(date[5:7])

@@ -58,6 +58,14 @@ body {
     color:                  #FFF;
 }
 
+.not-fav .fav-entry-button {
+    color:                  #000;
+}
+
+.fav-entry-button {
+    color:                  #FC0;
+}
+
 #appcache-events {
     white-space:            pre-wrap;
 }

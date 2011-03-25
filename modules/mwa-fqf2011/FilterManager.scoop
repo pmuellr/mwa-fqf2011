@@ -33,9 +33,33 @@ function setupFilter(filter)
     buttons.bind("click", function() {
         filterClicked(filter)
     })
+    
+    if (filter != "fav") return
+
+    $(".fav-entry-button").bind("click", function() {
+        favEntryClicked(this.parentNode)
+    })
+
+//-----------------------------------------------------------------------------
+function favEntryClicked(entryRow)
+    var favButton = $(".fav-entry-button", entryRow)
+    var entryRow  = $(entryRow)
+    var isOff     = entryRow.hasClass("not-fav")
+    
+    if (isOff) {
+        entryRow.removeClass("not-fav")
+        favButton[0].innerText = "\u2605"
+    }
+    
+    else {
+        entryRow.addClass("not-fav")
+        favButton[0].innerText = "\u2606"
+    }
+    
 
 //-----------------------------------------------------------------------------
 function filterClicked(filter)
+
     if (_.include(filters, filter)) {
         turnOff(filter)
     }
@@ -49,28 +73,44 @@ function turnOff(filter)
     filters = DB.removeFilter(filter)
     $(".button-" + filter).removeClass("on")
     
-    if (noDaysSet()) {
-        $(".day-Thu").css("display", "table-row")
-        $(".day-Fri").css("display", "table-row")
-        $(".day-Sat").css("display", "table-row")
-        $(".day-Sun").css("display", "table-row")
-        return
+    if (filter == "fav") {
+        $(".not-fav").css("display", "table-row")
     }
     
-    $("." + filter).css("display", "none")
+    else {
+        if (noDaysSet()) {
+            $(".day-Thu").css("display", "table-row")
+            $(".day-Fri").css("display", "table-row")
+            $(".day-Sat").css("display", "table-row")
+            $(".day-Sun").css("display", "table-row")
+            return
+        }
+        
+        $("." + filter).css("display", "none")
+    }
+    
 
 //-----------------------------------------------------------------------------
 function turnOn(filter)
-    if (noDaysSet()) {
-        $(".day-Thu").css("display", "none")
-        $(".day-Fri").css("display", "none")
-        $(".day-Sat").css("display", "none")
-        $(".day-Sun").css("display", "none")
-    }
+    var noDays = noDaysSet()
     
     filters = DB.addFilter(filter)
     $(".button-" + filter).addClass("on")
-    $("." + filter).css("display", "table-row")
+    
+    if (filter == "fav") {
+        $(".not-fav").css("display", "none")
+    }
+    
+    else {
+        if (noDays) {
+            $(".day-Thu").css("display", "none")
+            $(".day-Fri").css("display", "none")
+            $(".day-Sat").css("display", "none")
+            $(".day-Sun").css("display", "none")
+        }
+        
+        $("." + filter).css("display", "table-row")
+    }
 
 //-----------------------------------------------------------------------------
 function noDaysSet()
