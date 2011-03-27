@@ -41,7 +41,7 @@ events:
  9  2011/04/08  11:00 AM    12:15 PM    Kelcy Mae
  9  2011/04/08  12:30 PM     1:45 PM    Debauche
  9  2011/04/08   2:00 PM     3:30 PM    Flow Tribe
- 9  2011/04/08   3:45 PM     5:15 PM    MyNameIsJohnMichael
+ 9  2011/04/08   3:45 PM     5:15 PM    My Name Is John Michael
  9  2011/04/08   5:30 PM     7:00 PM    Johnny Sketch and the Dirty Notes
  6  2011/04/08  12:45 PM     1:15 PM    2nd Line Dance Steps
  6  2011/04/08   1:15 PM     3:00 PM    Palmetto Bug Stompers
@@ -319,7 +319,7 @@ events:
  M  2011/04/10   1:00 PM     1:50 PM    Davis Rogan & Kids Sing Along
  M  2011/04/10   2:00 PM     2:50 PM    Funny Bones Comedy Improv for Kids
  M  2011/04/10   3:00 PM     3:50 PM    The Freddy Fred Show with the Round Pegs
- M  2011/04/10   4:00 PM     4:50 PM    First Line of Inspiration CircusPerformance & Workshop
+ M  2011/04/10   4:00 PM     4:50 PM    First Line of Inspiration Circus Performance & Workshop
  M  2011/04/10   5:00 PM     6:00 PM    Johnette Downing
 
  7  2011/04/10  11:00 AM    12:15 PM    Mike Flaherty's Dixieland Direct Jazz band (International)
@@ -335,940 +335,172 @@ events:
  1  2011/04/10   3:30 PM     4:45 PM    Leif Pedersen's 1944 Big Band
  1  2011/04/10   5:00 PM     6:30 PM    Big Al Carson
 
-
-#=====================================================================
-#=====================================================================
-
-bands:
-
-#---------------------------------------------------------------------
-band: 101 Runners
-link: http://www.offbeat.com/2010/06/01/101-runners-new-orleans-funk-101-meantime-lounge-records/
-desc: 
-
-Indian-funk supergroup with Lionel Batiste, Jr., 
-Golden Eagles Big Chief Monk Boudreaux and 
-Golden Comanches War Chief Juan.
-
-#---------------------------------------------------------------------
-band: 2nd Line Dance Steps
-
-#---------------------------------------------------------------------
-band: A Celebration of Modern Jazz Masters by Victor Atkins, Ed Peterson and Steve Masakowski
-
-#---------------------------------------------------------------------
-band: A Piano Tribute to James Booker featuring Joe Krown
-
-#---------------------------------------------------------------------
-band: A Piano Tribute to Professor Longhair featuring Tom Worrell
-
-#---------------------------------------------------------------------
-band: Adam Crochet & I Tell You What
-
-#---------------------------------------------------------------------
-band: Africa Brass Band
-
-link: http://www.africabrass.com/
-desc: 
-
-Led by Thierno Dioubate (Guinea,drums) and Tim Green (New Orleans,sax) 
-AfricaBrass features the finest musicians from Africa and New Orleans 
-setting a new direction for brass band music.
-Our eclectic repertoire includes traditional songs from Africa, and 
-New Orleans, as well as pieces by Coltrane, Mardi Gras Indians 
-and the Neville Brothers set to the intense rhythms of West Africa. 
-
-#---------------------------------------------------------------------
-band: African Dance
-
-#---------------------------------------------------------------------
-band: Alex Bosworth
-
-#---------------------------------------------------------------------
-band: Alex McMurray
-
-link: http://www.alexmcmurray.com/
-desc: 
-
-Alex McMurray has been called a lot of things: "The most talented
-songwriter in New Orleans" (Antigravity Magazine June '07); "one of
-the best young songwriters in the country" (N.O. Gambit 11/03), and
-"the mad hatter of New Orleans guitar" (AltarNative 11/00).
-Commentators describe his work as "drawing on the affected weirdness
-of Screamin' Jay Hawkins and Tom Waits" (Bruce Warren/WXPN Phila. PA).
-He's been compared to artists as diverse as Randy Newman, Buster
-Pointdexter, Lyle Lovett, Elvis Costello, George Gershwin, The
-Ramones, Leon Redbone and David Lee Roth.
-
-<p>McMurray is also a founding member of another two of New Orleans' most
-distinctive bands. The Tin Men is comprised of McMurray along with
-washboard legend "Washboard" Chaz Leary and sousaphone virtuoso Matt
-Perrine.
-
-#---------------------------------------------------------------------
-band: Amanda Shaw & the Cute Guys
-
-link: http://en.wikipedia.org/wiki/Amanda_Shaw
-desc: 
-
-There’s simply no arguing with her performances; she can play the
-fiddle. She’s precise, confident, and playful in her approach to
-soloing and, in particular, to the Cajun, Creole, country and
-traditional pieces sprinkled throughout Good Southern Girl.
-Traditionalists might wish that she’d kept that work further clear of
-arena-rock drums, twangy lead guitar and electric bass, but Amanda
-Shaw—good Southern girl though she may be — is 20 years old. She’s
-justifiably more interested in evolution and experimentation than in
-preservation.
-
-#---------------------------------------------------------------------
-band: Amanda Walker Band
-
-#---------------------------------------------------------------------
-band: Amy Trail
-
-link: http://www.amytrail.com/
-desc: 
-
-In addition to her career as a lounge singer, Amy has continuously
-maintained a full original band since the age of 16. Amy has recorded
-4 albums and is currently in the process of recording her fifth. Amy
-has played all over New Orleans with her band and has been showcased
-on "Louisiana Jukebox" and "Dew Drop Inn." She has showcased at the
-New Orleans Jazz and Heritage and French Quarter music festivals. As
-singer and pianist, Amy mixes thoughtful songwriting with the beating
-heart of her band and tops it off with a searing vocal that is "by
-turns soulful, sensual and powerful" (Ben Rogers "Where Y'at"
-magazine).
-
-
-#---------------------------------------------------------------------
-band: Andrew Duhon
-
-link: http://www.andrewduhon.com/
-desc: 
-
-New Orleans Songwriter, Andrew Duhon has released two albums
-including, new EP, "Dreaming When You Leave", and debut album, "Songs
-I Wrote Before I Knew You". "Songs" was produced by Grammy award
-winning producer/engineer, Trina Shoemaker (Sheryl Crow, Emmylou
-Harris, Queens of the Stone Age, Whiskeytown) and "Dreaming" by Grammy
-winning producer, John Snyder (Dave Brubeck, Etta James, Junior Wells,
-Ornette Coleman, Dizzy Gillespie, Clarence Gatemouth Brown). Andrew
-has toured throughout the United States and UK, and continues to tour,
-write, and record.
-
-#---------------------------------------------------------------------
-band: Andrew Hall's Memories of New Orleans
-
-#---------------------------------------------------------------------
-band: Armand St. Martin
-
-link:
-desc: 
-
-Pianist St. Martin plays both obscure New Orleans songs and originals
-that are firmly in the New Orleans tradition
-
-#---------------------------------------------------------------------
-band: Astral Project
-
-link:
-desc: 
-
-New Orleans’ and one of America’s preeminent modern jazz band
-featuring saxophonist Tony Dagradi, drummer Johnny Vidacovich, bassist
-James Singleton and guitarist Steve Masakowski. Their recent CD, Blue
-Streak, shows that after 31 years, they are tighter and more creative
-than ever.
-
-#---------------------------------------------------------------------
-band: Audacity Brass Band
-
-#---------------------------------------------------------------------
-band: Aurora Nealand & the Royal Roses
-
-link:
-desc: 
-
-Aurora Nealand is a saxophonist and composer who has been based in New
-Orleans, LA since 2004. She currently plays saxophones/accordion with
-the bands The Royal Roses, Panorama Jazz/Brass Band, Why Are We
-Building Such A Big Ship, The Brian Coogan Band, and Stagger Back
-Brass Band. In the past 4 years she has performed extensively in the
-local New Orleans music scene as well as at the New Orleans Jazz and
-Heritage Festival and the French Quarter Festival.
-
-#---------------------------------------------------------------------
-band: Baby Boyz Brass Band
-
-link:
-desc: 
-
-The Baby Boyz are the next generation of players from the Treme
-neighborhood and beyond.
-
-#---------------------------------------------------------------------
-band: Bag of Donuts
-
-#---------------------------------------------------------------------
-band: Bamboula 2000
-
-#---------------------------------------------------------------------
-band: Banu Gibson & the New Orleans Hot Jazz
-
-link:
-desc: 
-
-Vocalist/banjoist Banu Gibson leads her own talented band, formed in
-1981, on swinging jazz of the 1920s, 1930s and 1940s.
-
-#---------------------------------------------------------------------
-band: Benny Grunch & the Bunch 
-link: http://www.bennygrunch.com
-desc: 
-
-You don’t have to get all the local in-jokes to enjoy this band’s 
-send-ups of local music and “Yat” culture.
-
-#---------------------------------------------------------------------
-band: Big Al Carson
-
-link: http://www.bigalcarson.com/
-desc: 
-
-Alton 'BIG AL' Carson. New Orleans native and icon, blues singer
-extraordinaire, last of the great traditional New Orleans musicians
-still performing on Bourbon Street, drawing fans to the Funky Pirate
-from all over the country and the world. His singing is sublime.
-lyrical and raucous, his personality exuberant, engaging and loving.
-There is no one anywhere like him. Trained in traditional music from
-his early teens, he was celebrated for playing tuba in parades and
-second line for many years-even while he headlined his own band as
-singer and songwriter at various local clubs, including the legendary
-Fourth Edition.
-
-#---------------------------------------------------------------------
-band: Big Chief Bo Dolis
-
-#---------------------------------------------------------------------
-band: Big Red & The Playmakers
-
-#---------------------------------------------------------------------
-band: Big Sam's Funky Nation
-
-#---------------------------------------------------------------------
-band: Bill Summers & Orchestra Yoruba Afro America
-
-#---------------------------------------------------------------------
-band: Billy Iuso & Restless Natives
-
-#---------------------------------------------------------------------
-band: Black Eagle Reunion Band
-
-#---------------------------------------------------------------------
-band: Bob Walters' Good Time Jazz Band
-
-#---------------------------------------------------------------------
-band: Bone Tone Brass Band
-
-#---------------------------------------------------------------------
-band: Bonerama
-
-#---------------------------------------------------------------------
-band: Boogieman's Friend (Germany)
-
-#---------------------------------------------------------------------
-band: Borderland Dixieband Austria (Austria)
-
-#---------------------------------------------------------------------
-band: Brass-a-Holics
-
-#---------------------------------------------------------------------
-band: Brian Stoltz
-
-#---------------------------------------------------------------------
-band: Brother Tyrone
-
-#---------------------------------------------------------------------
-band: Bruce Daigrepont Cajun Band
-
-#---------------------------------------------------------------------
-band: Cajun Jitterbug Dance Lesson
-
-#---------------------------------------------------------------------
-band: Canal Creepers (Sweden)
-
-#---------------------------------------------------------------------
-band: Charleston
-
-#---------------------------------------------------------------------
-band: Charmaine Neville
-
-#---------------------------------------------------------------------
-band: Christian Serpas & Ghost Town
-
-#---------------------------------------------------------------------
-band: Chubby Carrier and the Bayou Swamp Band
-
-#---------------------------------------------------------------------
-band: Clive Wilson's New Orleans Serenaders
-
-#---------------------------------------------------------------------
-band: Coco Robicheaux & the Swamp Monsters
-
-#---------------------------------------------------------------------
-band: Colin Lake
-
-#---------------------------------------------------------------------
-band: Connie Jones & the French Quarter Festival All Stars
-
-#---------------------------------------------------------------------
-band: Coot
-
-#---------------------------------------------------------------------
-band: Creole String Beans
-
-#---------------------------------------------------------------------
-band: Creole Syncopators
-
-#---------------------------------------------------------------------
-band: Crescent City Winds
-
-#---------------------------------------------------------------------
-band: Dancing at Dusk with Rocky's Hot Fox Trot Orchestra
-
-#---------------------------------------------------------------------
-band: David Hansen's Garden District Trio & the Original Dixie Land Jazz Band
-
-#---------------------------------------------------------------------
-band: David Rebeck and Caroline Hixson Duo
-
-#---------------------------------------------------------------------
-band: Davis Rogan & Kids Sing Along
-
-#---------------------------------------------------------------------
-band: Debauche
-
-#---------------------------------------------------------------------
-band: Donna Angelle & the Zydeco Posse
-
-#---------------------------------------------------------------------
-band: Dr. Gonzeax
-
-#---------------------------------------------------------------------
-band: Dwayne Dopsie & the Zydeco Hellraisers
-
-#---------------------------------------------------------------------
-band: Enharmonic Souls
-
-#---------------------------------------------------------------------
-band: Ensemble Fatien featuring Seguenon Kone
-
-#---------------------------------------------------------------------
-band: Erin Miley
-
-#---------------------------------------------------------------------
-band: Fats Jazz Cats (Germany)
-
-#---------------------------------------------------------------------
-band: First Line of Inspiration CircusPerformance & Workshop
-
-#---------------------------------------------------------------------
-band: Flow Tribe
-
-#---------------------------------------------------------------------
-band: Fredy Omar con su Banda
-
-#---------------------------------------------------------------------
-band: Free Agents Brass Band
-
-#---------------------------------------------------------------------
-band: Fritzel's New Orleans Jazz Band
-
-#---------------------------------------------------------------------
-band: Funny Bones Comedy Improv for Kids
-
-#---------------------------------------------------------------------
-band: Gal Holiday and the Honkey Tonk Revue
-
-#---------------------------------------------------------------------
-band: Glen David Andrews
-
-#---------------------------------------------------------------------
-band: Glen David Andrews with Special Guest Amanda Shaw
-
-#---------------------------------------------------------------------
-band: Gravity A
-
-#---------------------------------------------------------------------
-band: Gravy
-
-#---------------------------------------------------------------------
-band: Greater New Orleans Youth Orchestra
-
-#---------------------------------------------------------------------
-band: Guitarist John Rankin
-
-#---------------------------------------------------------------------
-band: Happy Pals (Canada)
-
-#---------------------------------------------------------------------
-band: Harpist Rachel Van Voorhees
-
-#---------------------------------------------------------------------
-band: Helen Gillet's Wazozo
-
-#---------------------------------------------------------------------
-band: Heritage School of Music
-
-#---------------------------------------------------------------------
-band: Higher Heights Reggae
-
-#---------------------------------------------------------------------
-band: Honey Island Swamp Band
-
-#---------------------------------------------------------------------
-band: Hot Club of New Orleans
-
-#---------------------------------------------------------------------
-band: Hot Rod Lincoln
-
-#---------------------------------------------------------------------
-band: Hurricane Brass Band (Netherlands)
-
-#---------------------------------------------------------------------
-band: Ingrid Lucia
-
-#---------------------------------------------------------------------
-band: Irene Sage Band
-
-#---------------------------------------------------------------------
-band: Iris May Tango
-
-#---------------------------------------------------------------------
-band: Irvin Mayfield and the Playhouse Revue
-
-#---------------------------------------------------------------------
-band: Irvin Mayfield's Jazz Playhouse Revue
-
-#---------------------------------------------------------------------
-band: J. J. Caillier & the Zydeco Knockouts
-
-#---------------------------------------------------------------------
-band: J.C. & Company
-
-#---------------------------------------------------------------------
-band: Jalan Crossland
-
-#---------------------------------------------------------------------
-band: Jamie Hayes & the Pianoeaters
-
-#---------------------------------------------------------------------
-band: Jane Harvey Brown Trad Jazz Stars
-
-#---------------------------------------------------------------------
-band: Jeremy Davenport
-
-#---------------------------------------------------------------------
-band: Joe Krown Trio with Walter 'Wolfman' Washington and Russell Batiste, Jr.
-
-#---------------------------------------------------------------------
-band: John Autin
-
-#---------------------------------------------------------------------
-band: John Lisi & Delta Funk
-
-#---------------------------------------------------------------------
-band: John Michael Rouchell
-
-#---------------------------------------------------------------------
-band: John Royen's New Orleans Rhythm
-
-#---------------------------------------------------------------------
-band: Johnette Downing
-
-#---------------------------------------------------------------------
-band: Johnny Sketch and the Dirty Notes
-
-#---------------------------------------------------------------------
-band: Jon Roniger
-
-#---------------------------------------------------------------------
-band: Jonno & Bayou Deville
-
-#---------------------------------------------------------------------
-band: Josh Charles
-
-#---------------------------------------------------------------------
-band: K College Band featuring Lillian Boutte (England)
-
-#---------------------------------------------------------------------
-band: Keith Frank and the Soileau Zydeco Band
-
-#---------------------------------------------------------------------
-band: Kelcy Mae
-
-#---------------------------------------------------------------------
-band: Kermit Ruffins & the Barbecue Swingers
-
-#---------------------------------------------------------------------
-band: Kevin Sekhani
-
-#---------------------------------------------------------------------
-band: Khris Royal & Dark Matter
-
-#---------------------------------------------------------------------
-band: Kid Merv & All That Jazz
-
-#---------------------------------------------------------------------
-band: Kid Simmons New Orleans Jazz Band
-
-#---------------------------------------------------------------------
-band: Kim Carson & the Enablers
-
-#---------------------------------------------------------------------
-band: Kipori Woods
-
-#---------------------------------------------------------------------
-band: Kirk Joseph's 504 Brass Band
-
-#---------------------------------------------------------------------
-band: Kora Konnection
-
-#---------------------------------------------------------------------
-band: Kourtney Heart
-
-#---------------------------------------------------------------------
-band: Kristin Diable
-
-#---------------------------------------------------------------------
-band: Lagniappe Brass Band
-
-#---------------------------------------------------------------------
-band: Lars Edegran's New Orleans Jazz band
-
-#---------------------------------------------------------------------
-band: Leif Pedersen's 1944 Big Band
-
-#---------------------------------------------------------------------
-band: Lena Prima
-
-#---------------------------------------------------------------------
-band: Leo Jackson and the Melody Clouds
-
-#---------------------------------------------------------------------
-band: Leon 'Kid Chocolate' Brown
-
-#---------------------------------------------------------------------
-band: Leroy Jones' Original Hurricane Brass Band
-
-#---------------------------------------------------------------------
-band: Les Freres Michot
-
-#---------------------------------------------------------------------
-band: Lillian Boutte
-
-#---------------------------------------------------------------------
-band: Lindsay Mendez
-
-#---------------------------------------------------------------------
-band: Linnzi Zaorski
-
-#---------------------------------------------------------------------
-band: Lionel Ferbos & Louisiana Shakers
-
-#---------------------------------------------------------------------
-band: Little Freddie King
-
-#---------------------------------------------------------------------
-band: Los Hombres Calientes
-
-#---------------------------------------------------------------------
-band: Los Po-Boy-Citos
-
-#---------------------------------------------------------------------
-band: Lost Bayou Ramblers
-
-#---------------------------------------------------------------------
-band: Louis Ford and His New Orleans Flairs
-
-#---------------------------------------------------------------------
-band: Luke Winslow-King
-
-#---------------------------------------------------------------------
-band: Lynn Drury Band
-
-#---------------------------------------------------------------------
-band: Lyric String Quartet
-
-#---------------------------------------------------------------------
-band: Magnetic Ear
-
-#---------------------------------------------------------------------
-band: Magnolia Brass Band (Canada)
-
-#---------------------------------------------------------------------
-band: Marc Stone
-
-#---------------------------------------------------------------------
-band: Mardi Gras Jazz Band (International)
-
-#---------------------------------------------------------------------
-band: Mas Mamones
-
-#---------------------------------------------------------------------
-band: McAlister Drive
-
-#---------------------------------------------------------------------
-band: Meschiya Lake & dem Little Big Horns
-
-#---------------------------------------------------------------------
-band: Mike Flaherty's Dixieland Direct Jazz Band
-
-#---------------------------------------------------------------------
-band: Mike Flaherty's Dixieland Direct Jazz band (International)
-
-#---------------------------------------------------------------------
-band: Miss Sophie Lee
-
-#---------------------------------------------------------------------
-band: Morikeba Kouyate & Kora Connection
-
-#---------------------------------------------------------------------
-band: Mu Lambda Kappa Mentoring Fraternity Perfomance & Workshop
-
-#---------------------------------------------------------------------
-band: MyNameIsJohnMichael
-
-#---------------------------------------------------------------------
-band: N'Fungola Sibo African Dance & Drum Co.
-
-#---------------------------------------------------------------------
-band: Neslort
-
-#---------------------------------------------------------------------
-band: New Bumpers Revival Band
-
-#---------------------------------------------------------------------
-band: New Bumpers Revival Jazz Band (France)
-
-#---------------------------------------------------------------------
-band: New Orleans Classic Jazz Orchestra
-
-#---------------------------------------------------------------------
-band: New Orleans Feetwarmers (Germany)
-
-#---------------------------------------------------------------------
-band: New Orleans Feetwarmers Featuring: Helge Sachs
-
-#---------------------------------------------------------------------
-band: New Orleans Helsinki Connection
-
-#---------------------------------------------------------------------
-band: New Orleans Jazz Institute Saturday Music School
-
-#---------------------------------------------------------------------
-band: New Orleans Moon Shiners
-
-#---------------------------------------------------------------------
-band: New Orleans Moonshiners
-
-#---------------------------------------------------------------------
-band: New Orleans String Project
-
-#---------------------------------------------------------------------
-band: Next Generation Brass Band
-
-#---------------------------------------------------------------------
-band: Oakcity Jazz Band Maaseik (Belgium)
-
-#---------------------------------------------------------------------
-band: Ole Man River Band
-
-#---------------------------------------------------------------------
-band: Olga Wilhelmine1
-
-#---------------------------------------------------------------------
-band: One Mind Brass Band
-
-#---------------------------------------------------------------------
-band: Onward Brass Band
-
-#---------------------------------------------------------------------
-band: Open Jam Session Featuring
-
-#---------------------------------------------------------------------
-band: Open Jam Session Featuring: Darryl Adams
-
-#---------------------------------------------------------------------
-band: Opera On Tap
-
-#---------------------------------------------------------------------
-band: Orange Kellin's New Orleans Deluxe Orchestra
-
-#---------------------------------------------------------------------
-band: Orleans Brass Band
-
-#---------------------------------------------------------------------
-band: Osaka Hot Cats (Japan)
-
-#---------------------------------------------------------------------
-band: Otra
-
-#---------------------------------------------------------------------
-band: Ovi-G and the Froggies
-
-#---------------------------------------------------------------------
-band: Palmetto Bug Stompers
-
-#---------------------------------------------------------------------
-band: Panorama Brass Band
-
-#---------------------------------------------------------------------
-band: Panorama Jazz Band
-
-#---------------------------------------------------------------------
-band: Pat Casey & the New Sound
-
-#---------------------------------------------------------------------
-band: Patrice Fisher & the Garifuna Connection
-
-#---------------------------------------------------------------------
-band: Patrice Fisher and Arpa
-
-#---------------------------------------------------------------------
-band: Paul Sanchez & the Rolling Road Show
-
-#---------------------------------------------------------------------
-band: Pianist Adam Mayon
-
-#---------------------------------------------------------------------
-band: Pinettes Brass Band
-
-#---------------------------------------------------------------------
-band: Pontchartrain Owls (International)
-
-#---------------------------------------------------------------------
-band: PorcheVide Playboys
-
-#---------------------------------------------------------------------
-band: Preservation HallStars
-
-#---------------------------------------------------------------------
-band: Red Hot Brass Band plus the Saturday Morning All-stars
-
-#---------------------------------------------------------------------
-band: Renard Poche Band
-
-#---------------------------------------------------------------------
-band: Rhodes Spedale & Jazz from Congo Square
-
-#---------------------------------------------------------------------
-band: Riccardo Crespo & Sol Brasil
-
-#---------------------------------------------------------------------
-band: Ritmo Calypso
-
-#---------------------------------------------------------------------
-band: Rockin' Dopsie Jr. & the Zydeco Twisters
-
-#---------------------------------------------------------------------
-band: Rosita Kess
-
-#---------------------------------------------------------------------
-band: Russell Batiste & Friends featuring Jason Neville
-
-#---------------------------------------------------------------------
-band: Shamarr Allen & the Underdawgs
-
-#---------------------------------------------------------------------
-band: Shannon Powell Trio
-
-#---------------------------------------------------------------------
-band: Smitty Dee's Jazz Band Featuring: Dimitri Smith
-
-#---------------------------------------------------------------------
-band: Some Like It Hot
-
-#---------------------------------------------------------------------
-band: Some Like it Hot
-
-#---------------------------------------------------------------------
-band: Son Como Son
-
-#---------------------------------------------------------------------
-band: Sound of Vespers (Japan)
-
-#---------------------------------------------------------------------
-band: Spirit of New Orleans Brass Band
-
-#---------------------------------------------------------------------
-band: Steve Pistorius and the Southern Syncopators
-
-#---------------------------------------------------------------------
-band: Stooges Brass Band
-
-#---------------------------------------------------------------------
-band: Storyville Stompers Brass Band
-                
-#---------------------------------------------------------------------
-band: Sun Chief Sounds of Faulkner State University
-
-#---------------------------------------------------------------------
-band: Sunpie & the Louisiana Sunspots
-
-#---------------------------------------------------------------------
-band: Susan Cowsill and the Bonas Brothers
-
-#---------------------------------------------------------------------
-band: Swing Dance
-
-#---------------------------------------------------------------------
-band: Swingaroux
-
-#---------------------------------------------------------------------
-band: Tank and the Zydeco Codebreakers
-
-#---------------------------------------------------------------------
-band: TBC Brass Band
-
-#---------------------------------------------------------------------
-band: The Bucktown All-Stars
-
-#---------------------------------------------------------------------
-band: The Dukes Of Dixieland
-
-#---------------------------------------------------------------------
-band: The Freddy Fred Show with the Round Pegs
-
-#---------------------------------------------------------------------
-band: The Jimmy Thibodeaux Band
-
-#---------------------------------------------------------------------
-band: The Last Straws
-
-#---------------------------------------------------------------------
-band: The New Leviathan Oriental Foxtrot Orchestra
-
-#---------------------------------------------------------------------
-band: The Pfister Sisters
-
-#---------------------------------------------------------------------
-band: The Revealers
-
-#---------------------------------------------------------------------
-band: The Revivalists
-
-#---------------------------------------------------------------------
-band: The Ronnie Kole Show featuring John Perkins
-
-#---------------------------------------------------------------------
-band: The Soul Project
-
-#---------------------------------------------------------------------
-band: The Traditional Cody Clan (France)
-
-#---------------------------------------------------------------------
-band: The Victory Belles with the Victory Six
-
-#---------------------------------------------------------------------
-band: Thelonious Monk Institute Ensemble
-
-#---------------------------------------------------------------------
-band: Tim Laughlin
-
-#---------------------------------------------------------------------
-band: Tin Men
-
-#---------------------------------------------------------------------
-band: Tom McDermott & Evan Christopher
-
-#---------------------------------------------------------------------
-band: Tommy Malone and the Mystik Drone
-
-#---------------------------------------------------------------------
-band: Tommy Sancton's Black Eagle Reunion Band
-
-#---------------------------------------------------------------------
-band: Tony Green and Gypsy Jazz
-
-#---------------------------------------------------------------------
-band: Tornado Brass Band Featuring: Darryl Adams
-
-#---------------------------------------------------------------------
-band: Traditional Jazz Dance
-
-#---------------------------------------------------------------------
-band: Treme Brass Band
-
-#---------------------------------------------------------------------
-band: Trombone Shorty & Orleans Avenue
-
-#---------------------------------------------------------------------
-band: Tuba Skinny
-
-#---------------------------------------------------------------------
-band: Tuxedo Jazz Band (Denmark)
-
-#---------------------------------------------------------------------
-band: Vagabond Swing
-
-#---------------------------------------------------------------------
-band: Walter 'Wolfman' Washington
-
-#---------------------------------------------------------------------
-band: Wanda Rouzan and A Taste of New Orleans
-
-#---------------------------------------------------------------------
-band: Washboard Chaz Blues Trio
-
-#---------------------------------------------------------------------
-band: Waylon Thibodeaux
-
-#---------------------------------------------------------------------
-band: Will Dailey
-
-#---------------------------------------------------------------------
-band: Wilson & Moore
-
-#---------------------------------------------------------------------
-band: Zazou City
-
-#---------------------------------------------------------------------
-band: Zion Trinity
-
-#---------------------------------------------------------------------
-band: Zohar & the Free Spirit Dancers
-
-#---------------------------------------------------------------------
-band: Zydeco Dance Lesson
-
-#---------------------------------------------------------------------
-band: Zydecosis
-
-#---------------------------------------------------------------------
-band: Zydepunks
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#--------------------------------------------------------------------------
+
+X1 2011/04/07   10:00 pm ? pm   NOLA Country                                                                                                        
+X2 2011/04/07    8:00 pm ? pm   John William                                                                                                        
+X2 2011/04/07   10:30 pm ? pm   Andy J Forest
+X3 2011/04/07    7:00 pm ? pm   Bottoms Up Blues Gang
+X3 2011/04/07   10:00 pm ? pm   DJ T-Roy presents Reggae Night with Bayou International
+X3 2011/04/07   11:00 pm ? pm   Balcony Room: Gravity A
+X4 2011/04/07    6:00 pm ? pm   Ramblin' Letters
+X4 2011/04/07    8:30 pm ? pm   Cha wa  
+X4 2011/04/07   11:00 pm ? pm   The Low-Stress Quintet
+X5 2011/04/07    8:00 pm ? pm   Bryan Lee
+X6 2011/04/07    8:00 pm ? pm   Social Dance
+X7 2011/04/07   10:00 pm ? pm   Shamarr Allen & the Underdawgs
+X9 2011/04/07   10:00 pm ? pm   Mission Honduras Benefit with The Benjy Davis Project
+XA 2011/04/07    2:30 pm ? pm   Sasha & Steve Masakowski
+XA 2011/04/07    5:00 pm ? pm   Piano Tribute to Jelly Roll Morton feat. Tom McDermott & Evan Christopher
+XA 2011/04/07    8:00 pm ? pm   Los Hombres Calientes
+XB 2011/04/07    6:00 pm ? pm   Matt Bell
+XB 2011/04/07    9:00 pm ? pm   Joshua Gouzy Trio
+XC 2011/04/07    8:00 pm ? pm   Buddy Francioni & Home Grown
+XD 2011/04/07   11:00 pm ? pm   Soul Rebels Brass Band
+XE 2011/04/07    7:00 pm ? pm   Jayna Morgan
+XE 2011/04/07   10:00 pm ? pm   Kevin O'Day
+XF 2011/04/07   10:00 pm ? pm   The Trio feat. Johnny Vidacovich, George Porter Jr.
+XG 2011/04/07    3:00 pm ? pm   Jimmy James
+XG 2011/04/07    6:00 pm ? pm   Colin Lake
+XG 2011/04/07    9:00 pm ? pm   Captain Leo
+XI 2011/04/07    6:00 pm ? pm   Ogden After Hours feat. An Evening of Classics with members of the LPO
+XJ 2011/04/07    8:00 pm ? pm   The Pains of Being Pure at Heart with Twin Shadow
+XJ 2011/04/07    9:00 pm ? pm   The Pains of Being Pure at Heart with Twin Shadow
+XJ 2011/04/07    9:00 pm ? pm   The Pains of Being Pure at Heart
+XJ 2011/04/07   10:00 pm ? pm   80s Night
+XK 2011/04/07    8:00 pm ? pm   Black Eagle Jazz Band
+XL 2011/04/07    9:00 pm ? pm   War Paint, PVT, Family Band
+XM 2011/04/07    7:00 pm ? pm   Christian George
+XN 2011/04/07    8:30 pm ? pm   Rosie Ledet
+XP 2011/04/07    8:00 pm ? pm   Larry Willis with Jason Marsalis and Jesse Boyd
+XP 2011/04/07   10:00 pm ? pm   Larry Willis with Jason Marsalis and Jesse Boyd
+XQ 2011/04/07    4:00 pm ? pm   Brett Richardson
+XQ 2011/04/07    6:00 pm ? pm   Miss Sophie Lee
+XQ 2011/04/07   10:00 pm ? pm   The New Orleans Moonshiners     New Orleans     Marigny/Bywater     Jazz, Variety                                  
+XR 2011/04/07    7:00 pm ? pm   Luke Winslow-King
+XR 2011/04/07   10:00 pm ? pm   Jayna Morgan
+X2 2011/04/08    4:00 pm ? pm   John William
+X2 2011/04/08    8:00 pm ? pm   Rick Westin
+X2 2011/04/08   11:00 pm ? pm   Mike Sklar & the Hipshakers
+X3 2011/04/08   12:00 pm ? pm   Balcony Room: DJ Real and Black Pearl
+X3 2011/04/08    8:00 pm ? pm   Mykia Jovan & Jason Butler
+X3 2011/04/08    9:00 pm ? pm   Balcony Room: Bottoms Up Blues Gang, The Mumbles
+X3 2011/04/08   10:00 pm ? pm   Johnny Sketch & the Dirty Notes
+X4 2011/04/08    1:00 am ? pm   One Mind Brass Band
+X4 2011/04/08    7:00 pm ? pm   Moonshine and Caroline
+X4 2011/04/08   10:00 pm ? pm   Rue Fiya
+X5 2011/04/08    8:00 pm ? pm   Bryan Lee
+X6 2011/04/08    8:00 pm ? pm   Vaud & the Villains
+X7 2011/04/08    6:00 pm ? pm   Linnzi Zaorski
+X7 2011/04/08   10:00 pm ? pm   Joe Krown Trio with Walter "Wolfman" Washington & Russell Batiste
+X8 2011/04/08   10:00 pm ? pm   Jermaine Quiz with Derrick Freeman, Kirk Joseph
+X9 2011/04/08   10:00 pm ? pm   Lillian Axe
+XA 2011/04/08   12:00 pm ? pm   Burlesque Ballroom feat. Trixie Minx and Linnzi Zaorski
+XA 2011/04/08    2:30 pm ? pm   Modern Jazz Masters Celebration feat. Victor Atkins, Ed Petersen & Steve Masakowski
+XA 2011/04/08    5:00 pm ? pm   Piano Tribute to Professor Longhair feat. Tom Worrell
+XA 2011/04/08    8:00 pm ? pm   Leon "Kid Chocolate" Brown
+XB 2011/04/08    5:00 pm ? pm   Sasha Masakowski Trio
+XB 2011/04/08    8:00 pm ? pm   Fredrick Sanders & Funksion
+XC 2011/04/08    4:00 pm ? pm   Kim Carson Band
+XC 2011/04/08    8:00 pm ? pm   Foot & friends
+XD 2011/04/08   11:00 pm ? pm   Gal Holiday & the Honky Tonk Revue
+XE 2011/04/08    7:00 pm ? pm   Clarence & the Funky People
+XE 2011/04/08   10:00 pm ? pm   Brass-A-Holics
+XF 2011/04/08   10:00 pm ? pm   Good Enough for Good Times, Andrew Hall
+XG 2011/04/08    3:00 pm ? pm   Colin Lake
+XG 2011/04/08    6:00 pm ? pm   Irving Bannister's All-stars
+XG 2011/04/08    9:00 pm ? pm   Irving Bannister's All-stars
+XH 2011/04/08    5:30 pm ? pm   Harpist Cathy Anderson
+XJ 2011/04/08   10:00 pm ? pm   Billy Iuso & the Restless Natives with Big Chief Monk Boudreaux
+XK 2011/04/08    7:00 pm ? pm   Ernie Buscio Jazz Band  New Orleans
+XK 2011/04/08    8:15 pm ? pm   Clive Wilson & the Palm Court Jazz Band with Bob Havens, David Boeddinghaus, Otis Bazoon, Gerald Adams & Hal Smith
+XL 2011/04/08   11:00 pm ? pm   Jean-Eric
+XM 2011/04/08    9:00 pm ? pm   Broken Heart Pharoahs
+XN 2011/04/08    9:30 pm ? pm   Big Sam's Funky Nation
+XO 2011/04/08    7:00 pm ? pm   Cha wa
+XP 2011/04/08    8:00 pm ? pm   Ellis Marsalis Quartet
+XP 2011/04/08   10:00 pm ? pm   Ellis Marsalis Quartet
+XQ 2011/04/08    4:00 pm ? pm   Brett Richardson
+XQ 2011/04/08    6:00 pm ? pm   Washboard Chaz Blues Trio
+XQ 2011/04/08   10:00 pm ? pm   New Orleans Cottonmouth Kings
+XR 2011/04/08    7:00 pm ? pm   Davis Rogan
+XR 2011/04/08   10:00 pm ? pm   Glen David Andrews
+XS 2011/04/08   10:00 pm ? pm   Break Science, Chali2na feat. Eric Krasno & Kirk Joseph, Gypsyphonic Disko, Gravity A
+X1 2011/04/09   10:00 pm ? pm   Silver Apples, Automata Afterparty
+X2 2011/04/09    4:00 pm ? pm   Maxwell Eaton
+X2 2011/04/09    8:00 pm ? pm   Sneaky Pete
+X2 2011/04/09   11:00 pm ? pm   Mike Sklar & the Hipshakers
+X3 2011/04/09   12:00 pm ? pm   Balcony Room: DJ Real and Black Pearl
+X3 2011/04/09    7:00 pm ? pm   Balcony Room: Jamie Hayes' CD-release party
+X3 2011/04/09    7:00 pm ? pm   Washboard Chaz Blues Trio
+X3 2011/04/09   10:00 pm ? pm   call club
+X4 2011/04/09   12:30 pm ? pm   Ashton & the Big Easy Brawlers Brass Band
+X4 2011/04/09    3:00 pm ? pm   New Orleans Jazz Series
+X4 2011/04/09    6:30 pm ? pm   Jayna Morgan and the Sazerac Sunrise Jazz Band
+X4 2011/04/09    9:30 pm ? pm   Shamarr Allen
+X5 2011/04/09    8:00 pm ? pm   Bryan Lee
+X6 2011/04/09    9:00 pm ? pm   Sunpie Barnes & Buckwheat Zydeco
+X7 2011/04/09    8:00 pm ? pm   John Boutt
+X7 2011/04/09   11:00 pm ? pm   Little Freddie King
+X8 2011/04/09    8:00 pm ? pm   Guster, Jukebox the Ghost
+XA 2011/04/09   12:00 pm ? pm   Brass Band Jam feat. Hot 8 Brass Band
+XA 2011/04/09    2:30 pm ? pm   Baby Boyz Brass Band
+XA 2011/04/09    5:00 pm ? pm   Piano Tribute to James Booker feat. Joe Krown
+XA 2011/04/09    8:00 pm ? pm   Irvin Mayfield & the Playhouse Revue
+XB 2011/04/09    5:00 pm ? pm   Cristina Perez Trio
+XB 2011/04/09    8:00 pm ? pm   Matt Marantz
+XC 2011/04/09    4:00 pm ? pm   Speed the Mule
+XC 2011/04/09    8:00 pm ? pm   Rites of Passage
+XD 2011/04/09   11:00 pm ? pm   Johnny Angel & the Swingin' Demons
+XE 2011/04/09    1:00 am ? pm   Lagniappe Brass Band
+XE 2011/04/09    5:00 pm ? pm   Caroline Fourmy
+XE 2011/04/09    7:00 pm ? pm   Smokin' Time Jazz Club
+XE 2011/04/09   10:00 pm ? pm   Big Easy Brawlers
+XE 2011/04/09   11:30 pm ? pm   Pinettes Brass Band
+XF 2011/04/09   10:00 pm ? pm   Yo Mama's Big Fat Booty Band
+XG 2011/04/09    3:00 pm ? pm   Joe Bennett
+XG 2011/04/09    6:00 pm ? pm   Irving Bannister's All-stars
+XG 2011/04/09    9:00 pm ? pm   Irving Bannister's All-stars
+XJ 2011/04/09   12:00 pm ? pm   Fleur de Lindy Party with Meschiya Lake & the Little Big Horns
+XJ 2011/04/09    8:00 pm ? pm   Vaud & the Villains
+XK 2011/04/09    8:00 pm ? pm   Lionel Ferbos & the Palm Court Jazz Band with John Parker
+XM 2011/04/09   10:00 pm ? pm   Austin Sicard
+XN 2011/04/09    9:30 pm ? pm   Kermit Ruffins & the BBQ Swingers
+XP 2011/04/09    8:00 pm ? pm   Dr. Michael White & the Original Liberty Jazz Band
+XP 2011/04/09   10:00 pm ? pm   Dr. Michael White & the Original Liberty Jazz Band
+XQ 2011/04/09    3:00 pm ? pm   Luke Winslow-King
+XQ 2011/04/09    6:00 pm ? pm   Panorama Jazz Band
+XQ 2011/04/09   10:00 pm ? pm   The Jazz Vipers
+XR 2011/04/09    7:00 pm ? pm   Bottoms Up Blues Gang
+XR 2011/04/09   10:00 pm ? pm   Frenchmen St. Jug Band
+X2 2011/04/10    4:00 pm ? pm   John William
+X2 2011/04/10    8:00 pm ? pm   Kenny Claiborne & Blood from a Stone
+X2 2011/04/10   10:30 pm ? pm   Reddy Teddy
+X3 2011/04/10   10:00 pm ? pm   Sunday Night Brass with MAINLINE
+X4 2011/04/10    1:00 pm ? pm   NOLA Music Series
+X4 2011/04/10    6:00 pm ? pm   Cristina Perez
+X4 2011/04/10    9:30 pm ? pm   Andy J Forest
+X7 2011/04/10    6:00 pm ? pm   Palmetto Bug Stompers
+X7 2011/04/10   10:00 pm ? pm   Iris May Tango
+XA 2011/04/10   12:00 pm ? pm   Leo Jackson & the Melody Clouds
+XA 2011/04/10    2:30 pm ? pm   Glen David Andrews
+XA 2011/04/10    5:00 pm ? pm   Bill Summers & Orchestra Yoruba Afro America
+XA 2011/04/10    7:00 pm ? pm   Shannon Powell Trio
+XC 2011/04/10    8:00 pm ? pm   Lynn Drury Trio
+XD 2011/04/10    9:00 pm ? pm   Sunday Brass
+XE 2011/04/10    7:00 pm ? pm   Courtyard Kings
+XE 2011/04/10   10:00 pm ? pm   The Tom Cats
+XF 2011/04/10   10:00 pm ? pm   Joe Krown Trio with Russell Batiste & Walter "Wolfman" Washington
+XG 2011/04/10    3:00 pm ? pm   Irving Bannister's All-stars
+XG 2011/04/10    6:00 pm ? pm   Cindy Chen
+XG 2011/04/10    9:00 pm ? pm   Ched Reeves
+XK 2011/04/10    8:00 pm ? pm   Wendell Brunious & Sunday Night Swingsters
+XP 2011/04/10    8:00 pm ? pm   Tom McDermott & Evan Christopher CD-release party
+XP 2011/04/10   10:00 pm ? pm   Tom McDermott & Evan Christopher CD-release party
+XQ 2011/04/10    3:00 pm ? pm   Rights of Swing
+XQ 2011/04/10    6:00 pm ? pm   Ben Polcer & The Grinders
+XQ 2011/04/10   10:00 pm ? pm   Pat Casey & The New Sound
+XR 2011/04/10    7:00 pm ? pm   Linnzi Zaorski
 
 
 #=====================================================================
@@ -1296,3 +528,33 @@ venues:
 18  cc9  House of Blues
 19  e55  1116 Chartres
  M  f4c  Children's Riverfront Stage
+
+X1  777  AllWays Lounge
+X2  777  Apple Barrel
+X3  777  Blue Nile
+X4  777  BMC
+X5  777  Bourbon Saloon
+X6  777  Chickie Wah Wah
+X7  777  d.b.a.
+X8  777  House of Blues
+X9  777  Howlin' Wolf
+XA  777  Irvin Mayfield's Jazz Playhouse
+XB  777  Jazz Quarter
+XC  777  Kerry Irish Pub
+XD  777  Le Bon Temps Roule
+XE  777  Maison
+XF  777  Maple Leaf Bar
+XG  777  Margaritaville
+XH  777  New Orleans Museum of Art
+XI  777  Ogden Museum of Southern Art
+XJ  777  One Eyed Jacks
+XK  777  Palm Court Jazz Cafe
+XL  777  Republic New Orleans
+XM  777  Rivershack Tavern
+XN  777  Rock 'n' Bowl
+XO  777  Rusty Nail
+XP  777  Snug Harbor
+XQ  777  Spotted Cat
+XR  777  Three Muses
+XS  777  Tipitina's Uptown
+  

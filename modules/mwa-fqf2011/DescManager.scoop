@@ -30,6 +30,12 @@ static method hideAllDesc
 function entryClicked(entryRow)
     DescManager.hideAllDesc()
     
+    if (entryRow.showDesc) {
+        entryRow.showDesc = false
+        return
+    }
+    
+    entryRow.showDesc = true
     var eventId = getEventId(entryRow)
 
     var desc = $(".desc." + eventId)

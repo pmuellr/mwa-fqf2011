@@ -155,13 +155,13 @@ class BodyGenerator:
         
         for event in events:
             venue           = Venue.getVenue(event.venue)
-            venueBackground = 'style="background-color:#%s"' % venue.color
+            venueBackground = 'style="white-space:pre;padding:0 0.3em;background-color:#%s"' % venue.color
             google          = "http://google.com/search?q=%s" % (urllib.quote_plus(event.band))
         
             self.add('\t\t<tr class="desc %s">' % (event.id))
             self.add('\t\t\t<td colspan="5">')
             self.add('\t\t\t\t<p><b>%s</b>' % (event.band))
-            self.add('\t\t\t\t<p><span %s width="2em">%s</span> - %s' % (venueBackground, venue.number, venue.name))
+            self.add('\t\t\t\t<p><span %s>%s</span> - %s' % (venueBackground, venue.number.rjust(2), venue.name))
             self.add('\t\t\t\t<br>%s %s%s - %s%s' % (event.day, event.timeS, event.timeSampm, event.timeE, event.timeEampm))
             self.add('\t\t\t\t<p><a href="%s" target="_blank">Google Search</a>' % google)
 
@@ -247,6 +247,7 @@ contract it if it's expanded.
 #--------------------------------------------------------------------
 class Event:
     events = []
+    timePattern = re.compile(r"(\d+):(\d+)")
 
     #----------------------------------------------------------------
     @staticmethod
@@ -274,9 +275,9 @@ class Event:
         self.venue     = venue
         self.date      = date
         self.timeS     = timeS
-        self.timeSampm = timeSampm
+        self.timeSampm = timeSampm.lower()
         self.timeE     = timeE
-        self.timeEampm = timeEampm
+        self.timeEampm = timeEampm.lower()
         self.band      = band
         self.id        = re.sub(r"[^\w]", "-", "fav-%s %s %s" % (band, date, timeS))
         
@@ -284,16 +285,32 @@ class Event:
         mm = int(date[5:7])
         dd = int(date[8:10])
         
+        match = Event.timePattern.match(timeS)
+        if not match:
+            error("invalid time for %s: %s" % (band, timeS))
+            
+        try:
+            hhh = int(match.group(1))
+            mmm = int(match.group(2))
+        except:
+            error("invalid time for %s: %s:%s" % (band, match.group(1), match.group(2)))
+        
+        if self.timeSampm == "pm":
+            hhh += 12
+            
+        self.timeCmp = hhh * 60 + mmm
+        
         self.day = datetime.date(yy, mm, dd).strftime("%a")
         
         Event.events.append(self)
-        
+    
+
 #--------------------------------------------------------------------
 def compareEventsByTime(e1, e2):
     result = cmp(e1.date, e2.date)
     if result: return result
     
-    result = cmp(e1.timeS + e1.timeSampm, e2.timeS + e2.timeSampm)
+    result = cmp(e1.timeCmp, e2.timeCmp)
     if result: return result
     
     return cmp(e1.venue, e2.venue)
@@ -306,7 +323,7 @@ def compareEventsByBand(e1, e2):
     result = cmp(e1.date, e2.date)
     if result: return result
     
-    return cmp(e1.timeS + e1.timeSampm, e2.timeS + e2.timeSampm)
+    return cmp(e1.timeCmp, e2.timeCmp)
 
 #--------------------------------------------------------------------
 def compareEventsByVenue(e1, e2):
@@ -316,7 +333,7 @@ def compareEventsByVenue(e1, e2):
     result = cmp(e1.date, e2.date)
     if result: return result
     
-    return cmp(e1.timeS + e1.timeSampm, e2.timeS + e2.timeSampm)
+    return cmp(e1.timeCmp, e2.timeCmp)
 
 #--------------------------------------------------------------------
 class Band:
@@ -367,17 +384,15 @@ def parseData(input):
     patternComment = re.compile(r"^\s*#.*$", re.MULTILINE)
     input = patternComment.sub("", input)
 
-    patternParts = re.compile(r".*^events:$(.*)^bands:$(.*)^venues:$(.*)", re.MULTILINE | re.DOTALL)
+    patternParts = re.compile(r".*^events:$(.*)^venues:$(.*)", re.MULTILINE | re.DOTALL)
     match = patternParts.match(input)
     
     if not match: error("basic structure wrong for file")
 
     eventData = match.group(1)
-    bandData  = match.group(2)
-    venueData = match.group(3)
+    venueData = match.group(2)
     
     parseEventData(eventData)
-    parseBandData(bandData)
     parseVenueData(venueData)
     
     validateData()
@@ -476,14 +491,8 @@ def validateData():
     errors = False
     for event in events:
         venue = Venue.getVenue(event.venue)
-        band  = Band.getBand(event.band)
-        
         if None == venue: 
             log("ERROR: event with unknown venue: %s" % event.venue)
-            errors = True
-            
-        if None == band:  
-            # log("ERROR: event with unknown band: %s"  % event.band)
             errors = True
             
     if errors:
