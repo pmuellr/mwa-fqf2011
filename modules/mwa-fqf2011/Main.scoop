@@ -8,6 +8,7 @@
 requireClass ./DB
 requireClass ./Tools
 requireClass ./PageManager
+requireClass ./DescManager
 requireClass ./FilterManager
 
 //-----------------------------------------------------------------------------
@@ -24,8 +25,9 @@ function ready
     setTimeout(scrollPastUrlBar, 1000)
 
     PageManager.init()
-    Tools.init()
+    DescManager.init()
     FilterManager.init()
+    Tools.init()
     
 //-----------------------------------------------------------------------------
 function addAppCacheListeners

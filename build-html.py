@@ -10,6 +10,7 @@ import sys
 import json
 import datetime
 import urlparse
+import urllib
 
 DEBUG = not True
 
@@ -44,6 +45,7 @@ class BodyGenerator:
         self.generateEventsPage()
         self.generateBandsPage()
         self.generateVenuesPage()
+        self.generateDesc()
         self.generateMapPage()
         self.generateToolsPage()
 
@@ -65,18 +67,18 @@ class BodyGenerator:
         for event in events:
             if event.date != lastDate:
                 self.add('')
-                self.add('\t\t<tr class="header"><td colspan="4" %s>%s - %s' % (headerStyle, event.day, event.date))
+                self.add('\t\t<tr class="header"><td colspan="5" %s>%s - %s' % (headerStyle, event.day, event.date))
                 self.add('')
                 lastDate = event.date
                 
             venue = Venue.getVenue(event.venue)
             venueBackground = 'style="background-color:#%s"' % venue.color
             
-            self.add('\t\t<tr class="entry not-fav day-%s %s">' % (event.day, event.id))
+            self.add('\t\t<tr class="entry day-%s %s">' % (event.day, event.id))
             self.add('\t\t\t<td valign="top" class="fav-entry-button">&#x2606;')
-            self.add('\t\t\t<td valign="top" %s>%s' % (venueBackground, event.venue))
+            self.add('\t\t\t<td valign="top" align="right" %s>%s' % (venueBackground, event.venue))
             self.add('\t\t\t<td valign="top" align="right">%s%s&nbsp;-&nbsp' % (event.timeS, event.timeSampm))
-            self.add('\t\t\t<td valign="top" width="100%%">%s' % event.band)
+            self.add('\t\t\t<td valign="top" colspan="2">%s' % event.band)
         
         self.add('\t</table>')
         
@@ -99,12 +101,12 @@ class BodyGenerator:
             venue = Venue.getVenue(event.venue)
             venueBackground = 'style="background-color:#%s"' % venue.color
         
-            self.add('\t\t<tr class="entry not-fav day-%s %s">' % (event.day, event.id))
+            self.add('\t\t<tr class="entry day-%s %s">' % (event.day, event.id))
             self.add('\t\t\t<td valign="top" class="fav-entry-button">&#x2606;')
-            self.add('\t\t\t<td valign="top" %s>%s' % (venueBackground, event.venue))
+            self.add('\t\t\t<td valign="top" align="right" %s>%s' % (venueBackground, event.venue))
             self.add('\t\t\t<td valign="top">%s' % event.day)
             self.add('\t\t\t<td valign="top" align="right">%s%s&nbsp;-&nbsp' % (event.timeS, event.timeSampm))
-            self.add('\t\t\t<td valign="top" width="100%%">%s' % event.band)
+            self.add('\t\t\t<td valign="top">%s' % event.band)
         
         self.add('\t</table>')
 
@@ -129,18 +131,41 @@ class BodyGenerator:
                 venueName = venue.name
                 venueBackground = 'style="background-color:#%s"' % venue.color
                 self.add('')
-                self.add('\t\t<tr class="header"><td colspan="4" %s>%s - %s' % (venueBackground, event.venue, venueName))
+                self.add('\t\t<tr class="header"><td colspan="5" %s>%s - %s' % (venueBackground, event.venue, venueName))
                 self.add('')
                 lastVenue = event.venue
                 
-            self.add('\t\t<tr class="entry not-fav day-%s %s">' % (event.day, event.id))
+            self.add('\t\t<tr class="entry day-%s %s">' % (event.day, event.id))
             self.add('\t\t\t<td valign="top" class="fav-entry-button">&#x2606;')
             self.add('\t\t\t<td valign="top">%s' % event.day)
             self.add('\t\t\t<td valign="top" align="right">%s%s&nbsp;-&nbsp' % (event.timeS, event.timeSampm))
-            self.add('\t\t\t<td valign="top" width="100%%">%s' % event.band)
+            self.add('\t\t\t<td valign="top" colspan="2">%s' % event.band)
         
         self.add('\t</table>')
 
+        self.add('</div>')
+        
+    #----------------------------------------------------------------
+    def generateDesc(self):
+        self.pageSeparator()
+        self.add('<div style="display:none;">')
+        self.add('\t<table>')
+        
+        events = Event.getEventsByTime()
+        
+        for event in events:
+            venue           = Venue.getVenue(event.venue)
+            venueBackground = 'style="background-color:#%s"' % venue.color
+            google          = "http://google.com/search?q=%s" % (urllib.quote_plus(event.band))
+        
+            self.add('\t\t<tr class="desc %s">' % (event.id))
+            self.add('\t\t\t<td colspan="5">')
+            self.add('\t\t\t\t<p><b>%s</b>' % (event.band))
+            self.add('\t\t\t\t<p><span %s width="2em">%s</span> - %s' % (venueBackground, venue.number, venue.name))
+            self.add('\t\t\t\t<br>%s %s%s - %s%s' % (event.day, event.timeS, event.timeSampm, event.timeE, event.timeEampm))
+            self.add('\t\t\t\t<p><a href="%s" target="_blank">Google Search</a>' % google)
+
+        self.add('\t</table>')
         self.add('</div>')
         
     #----------------------------------------------------------------
@@ -523,10 +548,9 @@ http://www.opensource.org/licenses/mit-license.php
 <script src="modules/mwa-fqf2011/DB.transportd.js"></script>
 <script src="modules/mwa-fqf2011/Main.transportd.js"></script>
 <script src="modules/mwa-fqf2011/PageManager.transportd.js"></script>
+<script src="modules/mwa-fqf2011/DescManager.transportd.js"></script>
 <script src="modules/mwa-fqf2011/FilterManager.transportd.js"></script>
 <script src="modules/mwa-fqf2011/Tools.transportd.js"></script>
-
-<script src="vendor/zepto/zepto.js"></script>
 
 <script>
 require("mwa-fqf2011/Main").main()

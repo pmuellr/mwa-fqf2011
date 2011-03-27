@@ -13,9 +13,17 @@ class DB
 static method getLastPage
     return localStorage.getItem(keyLastPage) || "tools"
     
-static method setLastPage(pageName)
-    localStorage.setItem(keyLastPage, pageName)
+static method setLastPage(value)
+    localStorage.setItem(keyLastPage, value)
 
+//=============================================================================
+    
+static method getFilters
+    return 0xFFFF & (localStorage.getItem(keyFilters) || 0)
+
+static method setFilters(value)
+    localStorage.setItem(keyFilters, value)
+    
 //=============================================================================
 
 static method getAppCacheMessages
@@ -23,17 +31,6 @@ static method getAppCacheMessages
 
 static method addAppCacheMessage(message)
     return appCacheMessages.addItem(message)
-    
-//=============================================================================
-    
-static method getFilters
-    return filters.getList()
-
-static method addFilter(value)
-    return filters.addItem(value)
-    
-static method removeFilter(value)
-    return filters.removeItem(value)
     
 //=============================================================================
     
@@ -100,7 +97,6 @@ init
     var keyAppCacheMessages = prefix + ".AppCacheMessages"
     var keyFilters          = prefix + ".Filters"
     
-    var filters          = new ListSetting(keyFilters)
     var favorites        = new ListSetting(keyFavorites)
     var appCacheMessages = new ListSetting(keyAppCacheMessages)
 

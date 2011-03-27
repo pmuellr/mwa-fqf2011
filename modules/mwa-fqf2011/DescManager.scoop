@@ -1,0 +1,49 @@
+
+/*
+ * Copyright (c) 2011 Patrick Mueller
+ * Licensed under the MIT license: 
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+requireClass ./DB
+
+//-----------------------------------------------------------------------------
+class DescManager
+
+
+//-----------------------------------------------------------------------------
+static method init
+
+    $(".entry").bind("click", function() {
+        entryClicked(this)
+    })
+
+    $(".desc").bind("click", function() {
+        DescManager.hideAllDesc()
+    })
+
+//-----------------------------------------------------------------------------
+static method hideAllDesc
+    $(".desc").css("display", "none")
+    
+//-----------------------------------------------------------------------------
+function entryClicked(entryRow)
+    DescManager.hideAllDesc()
+    
+    var eventId = getEventId(entryRow)
+
+    var desc = $(".desc." + eventId)
+    desc.css("display", "table-row")
+    
+    $(entryRow).after(desc)
+    
+//-----------------------------------------------------------------------------
+function getEventId(eventRow)
+
+    var result = /\sfav-.*?\s/.exec(" " + eventRow.className + " ")
+    if (null == result) return result
+    
+    result = result[0]
+    return result.slice(1,result.length-1)
+
+    

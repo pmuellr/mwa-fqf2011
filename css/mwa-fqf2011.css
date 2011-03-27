@@ -58,12 +58,12 @@ body {
     color:                  #FFF;
 }
 
-.not-fav .fav-entry-button {
+.fav-entry-button {
     color:                  #000;
 }
 
-.fav-entry-button {
-    color:                  #FC0;
+.fav .fav-entry-button {
+    color:                  #090;
 }
 
 #appcache-events {

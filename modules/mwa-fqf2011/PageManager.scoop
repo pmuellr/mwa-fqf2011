@@ -6,12 +6,15 @@
  */
 
 requireClass ./DB
+requireClass ./DescManager
 
 //-----------------------------------------------------------------------------
 class PageManager
 
 //-----------------------------------------------------------------------------
 function showPage(pageName)
+    DescManager.hideAllDesc()
+
     $("#page-" + pageName).show()
     DB.setLastPage(pageName)
 
