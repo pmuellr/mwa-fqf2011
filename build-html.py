@@ -173,7 +173,11 @@ class BodyGenerator:
         self.pageSeparator()
         self.add('<div id="page-map" class="page">')
         self.pageMenu()
-        self.add('\t<img src="images/2011-fqf-map-large.png">')
+        
+        googleMap = "http://maps.google.com/maps/ms?ie=UTF8&hl=en&msa=0&msid=204035596704065787249.00049f838a6686caa5368&ll=29.936862,-90.104413&spn=0.025103,0.036736&z=13"
+        
+        self.add('\t<p>A <a target="_blank" href="%s">Google Map</a> is also available for the club listings.' % googleMap)
+        self.add('\t<p><img src="images/2011-fqf-map-large.png">')
         self.add('</div>')
 
     #----------------------------------------------------------------
@@ -295,7 +299,7 @@ class Event:
         except:
             error("invalid time for %s: %s:%s" % (band, match.group(1), match.group(2)))
         
-        if self.timeSampm == "pm":
+        if (self.timeSampm == "pm") and (hhh != 12):
             hhh += 12
             
         self.timeCmp = hhh * 60 + mmm
