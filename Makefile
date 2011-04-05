@@ -26,6 +26,7 @@ build:
 	@mkdir -p deploy/vendor/modjewel
 	@mkdir -p deploy/vendor/scooj
 	@mkdir -p deploy/vendor/underscore
+	@mkdir -p deploy/vendor/json2
 	
 	@echo 
 	@echo ===========================================================
@@ -36,6 +37,7 @@ build:
 	cp vendor/zepto/*.js      deploy/vendor/zepto
 	cp vendor/modjewel/*.js   deploy/vendor/modjewel
 	cp vendor/underscore/*.js deploy/vendor/underscore
+	cp vendor/json2/*.js      deploy/vendor/json2
 	
 	@echo 
 	@echo ===========================================================
@@ -85,12 +87,17 @@ build:
 	@echo
 	
 	@growlnotify -m "mwa-fqf2011 build finished" at `date +%H:%M:%S`
-    
 
 #-------------------------------------------------------------------------------
 deploy:
 	@chmod -R +w deploy
 	scp -r deploy/* muellerware.org:web/public/mwa-fqf-2011
+	@chmod -R -w deploy
+
+	#-------------------------------------------------------------------------------
+deployGSA:
+	@chmod -R +w deploy
+	scp -r deploy/* pmuellr@rtpgsa.ibm.com:web/mwa-fqf-2011
 	@chmod -R -w deploy
 
 #-------------------------------------------------------------------------------
@@ -110,7 +117,8 @@ vendor: vendor-prep \
         vendor-scoop \
         vendor-run-when-changed \
         vendor-zepto \
-        vendor-underscore
+        vendor-underscore \
+        vendor-json2
 
 #-------------------------------------------------------------------------------
 vendor-prep:
@@ -201,6 +209,15 @@ vendor-scoop:
 	curl --silent --show-error --output vendor/scooj/scoopc.py $(SCOOJ_URL)/$(SCOOJ_VERSION)/scoopc.py
 
 #-------------------------------------------------------------------------------
+vendor-json2:
+	@echo 
+	@echo ===========================================================
+	@echo downloading json2
+	@echo ===========================================================
+	@mkdir  vendor/json2
+	curl --silent --show-error --output vendor/json2/json2.js $(JSON2_URL)/$(JSON2_VERSION)/json2.js
+
+#-------------------------------------------------------------------------------
 vendor-run-when-changed:
 	@echo 
 	@echo ===========================================================
@@ -251,6 +268,9 @@ ZEPTO_VERSION          = 0.5
 
 UNDERSCORE_URL         = http://documentcloud.github.com/underscore/
 UNDERSCORE_VERSION     = 1.1.4
+
+JSON2_URL              = https://github.com/douglascrockford/JSON-js/raw
+JSON2_VERSION          = master
 
 RUN_WHEN_CHANGED_URL   = https://gist.github.com/raw/240922/0f5bedfc42b3422d0dee81fb794afde9f58ed1a6/run-when-changed.py
 

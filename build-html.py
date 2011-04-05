@@ -201,6 +201,8 @@ in the filter buttons.
 <p>Clicking on an entry will expand it, providing more information, or
 contract it if it's expanded.
 
+<p><a href="https://github.com/pmuellr/mwa-fqf2011">Fork me on GitHub!</a>
+
 <h2>Diagnostics</h2>
 <p>Screen dimensions: <span id="screen-width"></span> x <span id="screen-height"></span>
 
@@ -554,6 +556,7 @@ http://www.opensource.org/licenses/mit-license.php
 
 <script src="vendor/zepto/zepto.js"></script>
 <script src="vendor/underscore/underscore.js"></script>
+<script src="vendor/json2/json2.js"></script>
 <script src="vendor/modjewel/modjewel-require.js"></script>
 
 <script src="vendor/scooj/scooj.transportd.js"></script>
